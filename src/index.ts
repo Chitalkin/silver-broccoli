@@ -1,3 +1,4 @@
-const b = 123;
+import { consoleCalculator } from './console-calculator';
 
-console.log(b);
+consoleCalculator('2 + 2');
+consoleCalculator('4 + 2 * 4');
