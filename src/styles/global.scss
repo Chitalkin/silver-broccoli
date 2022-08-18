@@ -1,0 +1,15 @@
+@import './libs.scss';
+
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  height: 100%;
+}
