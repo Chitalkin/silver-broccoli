@@ -3,10 +3,10 @@ import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 const config: webpack.Configuration = {
-  entry: './index.ts',
+  entry: './index.tsx',
   context: path.resolve(__dirname, '../../src'),
   resolve: {
-    extensions: ['.js', '.ts'],
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
   },
   module: {
     rules: [
@@ -14,6 +14,14 @@ const config: webpack.Configuration = {
         test: [/\.jsx?$/, /\.tsx?$/],
         use: ['babel-loader'],
         exclude: /node_modules/,
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /\.(scss|sass)$/,
+        use: ['style-loader', 'css-loader', 'sass-loader'],
       },
     ],
   },
