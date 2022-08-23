@@ -1,12 +1,15 @@
 # silver-broccoli
 
-### Основные команды для работы с проектом:
+#### Установка зависимостей и запуск проект:
 > установка зависимостей: `npm install`
-
+> запуск проекта в develop режиме: `npm start`
 > production сборка: `npm run build`
 
-> запуск тестов: `npm run test`
+#### Тестирование
+> запуск unit тестов: `npm run test:unit`
+> запуск jest в watch режиме: `npm run test:watch`
+> запуск проверка скриншотов: `npm test:loki`
 
-> запуск проекта в режиме разработки: `npm run develop`
-
+#### Линтинг
 > запуск линтера: `npm run lint`
+> форматирование prettier: `npm run format`
