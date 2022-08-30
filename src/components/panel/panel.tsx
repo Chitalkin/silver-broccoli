@@ -3,27 +3,20 @@ import { Button } from '../button';
 import { Counter } from '../counter';
 import './panel.css';
 
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
-interface PanelProps {}
-
 interface PanelState {
   timerId: number | null;
   seconds: number;
   json?: Record<string, string | number | boolean>;
 }
 
-export class Panel extends React.Component<PanelProps, PanelState> {
-  constructor(props: PanelProps) {
+export class Panel extends React.Component<{}, PanelState> {
+  constructor(props: {}) {
     super(props);
 
     this.state = {
       timerId: null,
       seconds: 0,
     };
-
-    this.runTimer = this.runTimer.bind(this);
-    this.stopTimer = this.stopTimer.bind(this);
-    this.clearTimer = this.clearTimer.bind(this);
   }
 
   doNothing = () => {
@@ -52,8 +45,7 @@ export class Panel extends React.Component<PanelProps, PanelState> {
     }
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  shouldComponentUpdate(_: PanelProps, nextState: PanelState) {
+  shouldComponentUpdate(_: {}, nextState: PanelState) {
     if (nextState.seconds > 100000) {
       return false;
     }
@@ -61,7 +53,7 @@ export class Panel extends React.Component<PanelProps, PanelState> {
     return true;
   }
 
-  runTimer() {
+  runTimer = () => {
     if (!this.state.timerId) {
       const timerId = window.setInterval(() => {
         this.setState(({ seconds }) => ({
@@ -71,19 +63,19 @@ export class Panel extends React.Component<PanelProps, PanelState> {
 
       this.setState({ timerId });
     }
-  }
+  };
 
-  stopTimer() {
+  stopTimer = () => {
     if (typeof this.state.timerId === 'number') {
       window.clearInterval(this.state.timerId);
       this.setState({ timerId: null });
     }
-  }
+  };
 
-  clearTimer() {
+  clearTimer = () => {
     this.setState({ seconds: 0 });
     this.stopTimer();
-  }
+  };
 
   render(): React.ReactNode {
     return (
