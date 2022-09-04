@@ -1,28 +1,42 @@
 import React, { ButtonHTMLAttributes, useEffect, useState } from 'react';
-import cn from 'classnames';
-import './button.css';
+import styled from 'styled-components';
+import { BUTTON, FONT } from '@/styles/colors';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  className?: string;
   onClick?: () => void;
-  resetAfter?: number;
+  resetAfter?: number | 'always';
+  active?: boolean;
 }
 
+const StyledButton = styled.button`
+  color: ${(props: ButtonProps) =>
+    props.active ? FONT.primary : FONT.default};
+  background-color: ${(props: ButtonProps) =>
+    props.active ? BUTTON.primary : BUTTON.default};
+
+  padding: 0.2rem 1.2rem;
+  font-size: 1.6rem;
+  border: 0.2rem solid ${BUTTON.border};
+  border-radius: 0.4rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: ease-in-out 0.275s all;
+`;
+
 export const Button = React.memo<ButtonProps>(
-  ({ className, children, resetAfter = 1000, onClick, ...props }) => {
-    const [active, setActive] = useState(false);
-    const classes = cn('button', className, { active });
+  ({ active, children, resetAfter = 'always', onClick, ...props }) => {
+    const [isActive, setIsActive] = useState(active);
 
     useEffect(() => {
-      if (active) {
+      if (isActive && typeof resetAfter === 'number') {
         setTimeout(() => {
-          setActive(false);
+          setIsActive(false);
         }, resetAfter);
       }
-    }, [resetAfter, active]);
+    }, [resetAfter, isActive]);
 
     const handleClick = () => {
-      setActive(true);
+      setIsActive(true);
 
       if (onClick) {
         onClick();
@@ -30,9 +44,9 @@ export const Button = React.memo<ButtonProps>(
     };
 
     return (
-      <button className={classes} onClick={handleClick} {...props}>
+      <StyledButton active={isActive} onClick={handleClick} {...props}>
         {children}
-      </button>
+      </StyledButton>
     );
   },
 );

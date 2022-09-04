@@ -80,9 +80,15 @@ export class Panel extends React.Component<{}, PanelState> {
   render(): React.ReactNode {
     return (
       <div className="panel">
-        <Button onClick={this.runTimer}>Run</Button>
-        <Button onClick={this.stopTimer}>Pause</Button>
-        <Button onClick={this.clearTimer}>Clear</Button>
+        <Button resetAfter={1000} onClick={this.runTimer}>
+          Run
+        </Button>
+        <Button resetAfter={1000} onClick={this.stopTimer}>
+          Pause
+        </Button>
+        <Button resetAfter={1000} onClick={this.clearTimer}>
+          Clear
+        </Button>
         <Counter count={this.state.seconds} />
       </div>
     );

@@ -11,10 +11,11 @@ const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
 export const DefaultButton = Template.bind({});
 DefaultButton.args = {
   children: 'Default Button',
+  resetAfter: 500,
 };
 
-export const ButtonWithActiveClassName = Template.bind({});
-ButtonWithActiveClassName.args = {
-  className: 'active',
+export const ActiveButton = Template.bind({});
+ActiveButton.args = {
+  active: true,
   children: 'Active Button',
 };
