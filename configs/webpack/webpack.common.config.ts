@@ -7,6 +7,9 @@ const config: webpack.Configuration = {
   context: path.resolve(__dirname, '../../src'),
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
+    alias: {
+      '@': path.resolve(__dirname, '../../', 'src'),
+    },
   },
   module: {
     rules: [

@@ -1,12 +1,23 @@
 import React from 'react';
+import styled from 'styled-components';
+import { GlobalStyle } from '@/styles/global';
 import { Board } from '../board';
 import { EBoardSize } from '../board/board-enums';
 import { Panel } from '../panel';
-import './app.scss';
+
+const Wrapper = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+`;
 
 export const App: React.FC = () => (
-  <div className="app">
-    <Panel />
-    <Board size={EBoardSize.Small} />
-  </div>
+  <>
+    <GlobalStyle />
+    <Wrapper>
+      <Panel />
+      <Board size={EBoardSize.Small} />
+    </Wrapper>
+  </>
 );
