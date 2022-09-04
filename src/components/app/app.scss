@@ -1,4 +1,12 @@
 body {
   background-color: cyan;
   padding: 2rem;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.app {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
 }
