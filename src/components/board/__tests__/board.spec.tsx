@@ -13,6 +13,6 @@ describe('Board', () => {
   it('should contain expected number of elements', () => {
     render(<Board size={EBoardSize.Small} />);
 
-    expect(screen.getAllByTestId('cell-component')).toHaveLength(1500);
+    expect(screen.getAllByTestId('cell-component')).toHaveLength(48);
   });
 });
