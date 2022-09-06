@@ -2,7 +2,7 @@ import { EBoardSize } from './board-enums';
 
 export type BoardSizeConfigItem = {
   rows: number;
-  cells: number;
+  columns: number;
 };
 
 export type BoardSizeConfigs = {

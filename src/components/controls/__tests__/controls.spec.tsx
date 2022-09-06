@@ -6,6 +6,6 @@ describe('Counter', () => {
   it('should render corectly', () => {
     render(<Controls />);
 
-    expect(screen.getByTestId(/controls-element/)).toBeInTheDocument();
+    expect(screen.getByTestId(/controls-component/)).toBeInTheDocument();
   });
 });

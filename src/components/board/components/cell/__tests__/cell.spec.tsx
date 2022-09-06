@@ -4,8 +4,8 @@ import { Cell } from '../cell';
 
 describe('Cell', () => {
   it('should render correctly', () => {
-    render(<Cell cell={22} />);
+    render(<Cell size="40px" />);
 
-    expect(screen.getByText(22)).toBeInTheDocument();
+    expect(screen.getByTestId(/cell-component/)).toBeInTheDocument();
   });
 });

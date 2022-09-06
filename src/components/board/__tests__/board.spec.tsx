@@ -7,12 +7,12 @@ describe('Board', () => {
   it('should render correctly', () => {
     render(<Board size={EBoardSize.Small} />);
 
-    expect(screen.getByLabelText('main-board')).toBeInTheDocument();
+    expect(screen.getByTestId('board-component')).toBeInTheDocument();
   });
 
   it('should contain expected number of elements', () => {
     render(<Board size={EBoardSize.Small} />);
 
-    expect(screen.getAllByLabelText('board-cell')).toHaveLength(48);
+    expect(screen.getAllByTestId('cell-component')).toHaveLength(48);
   });
 });

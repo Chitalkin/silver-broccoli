@@ -13,7 +13,7 @@ const CotrolsWrapper = styled.div`
 `;
 
 export const Controls = React.memo(() => (
-  <CotrolsWrapper data-testid="controls-element">
+  <CotrolsWrapper data-testid="controls-component">
     <Button resetAfter={1000}>Run</Button>
     <Button resetAfter={1000}>Pause</Button>
     <Button resetAfter={1000}>Clear</Button>

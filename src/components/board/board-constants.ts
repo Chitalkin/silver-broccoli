@@ -2,15 +2,15 @@ import { BoardSizeConfigs } from './board-types';
 
 export const BOARD_SIZE_CONFIGS: BoardSizeConfigs = {
   small: {
-    rows: 6,
-    cells: 8,
+    rows: 30,
+    columns: 50,
   },
   medium: {
-    rows: 12,
-    cells: 10,
+    rows: 50,
+    columns: 70,
   },
   large: {
-    rows: 16,
-    cells: 12,
+    rows: 80,
+    columns: 100,
   },
 };
