@@ -9,7 +9,6 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  gap: 1rem;
 `;
 
 export const App: React.FC = () => (

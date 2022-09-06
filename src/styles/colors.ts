@@ -14,5 +14,5 @@ export const CELL = {
   primary: '#e44444',
   secodary: '#fbbbbbb',
   default: '#000000',
-  border: '333333',
+  border: '#333333',
 } as const;

@@ -1,23 +1,24 @@
-import React, { useState } from 'react';
-import cn from 'classnames';
-import './cell.css';
+import React from 'react';
+import styled from 'styled-components';
+import { CELL } from '@/styles/colors';
 
 interface CellProps {
-  cell: number;
+  size: string;
 }
 
-export const Cell: React.FC<CellProps> = ({ cell }) => {
-  const [active, setActive] = useState(false);
+const StyledCell = styled.span<CellProps>`
+  width: ${(props) => props.size};
+  height: ${(props) => props.size};
 
-  const handleClick = () => {
-    setActive(!active);
-  };
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: ${CELL.default};
+  border-left: 1px solid ${CELL.border};
+  border-top: 1px solid ${CELL.border};
+  cursor: pointer;
+`;
 
-  const classes = cn('cell', { active });
-
-  return (
-    <span aria-label="board-cell" onClick={handleClick} className={classes}>
-      {cell}
-    </span>
-  );
-};
+export const Cell = React.memo<CellProps>(({ size }) => (
+  <StyledCell data-testid="cell-component" size={size} />
+));
