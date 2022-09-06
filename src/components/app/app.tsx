@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { GlobalStyle } from '@/styles/global';
 import { Board } from '../board';
 import { EBoardSize } from '../board/board-enums';
-import { Panel } from '../controls';
+import { Controls } from '../controls';
 
 const Wrapper = styled.div`
   display: flex;
@@ -16,7 +16,7 @@ export const App: React.FC = () => (
   <>
     <GlobalStyle />
     <Wrapper>
-      <Panel />
+      <Controls />
       <Board size={EBoardSize.Small} />
     </Wrapper>
   </>

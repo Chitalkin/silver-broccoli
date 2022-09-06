@@ -1,12 +1,21 @@
 import React from 'react';
-import './counter.css';
+import styled from 'styled-components';
+import { FONT } from '@/styles/colors';
+
+const StyledCounter = styled.p`
+  color: ${FONT.default};
+  font-weight: normal;
+  font-size: 2rem;
+  margin: 0;
+`;
 
 interface CounterProps {
   count: number;
 }
 
-export const Counter: React.FC<CounterProps> = ({ count }) => (
-  <b className="counter" aria-label="current-element-count">
-    {count}
-  </b>
-);
+export const Counter = React.memo<CounterProps>(({ count }) => (
+  <StyledCounter className="counter" aria-label="current-element-count">
+    <span>Generation: </span>
+    <span>{count}</span>
+  </StyledCounter>
+));

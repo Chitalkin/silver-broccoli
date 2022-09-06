@@ -1,1 +1,1 @@
-export { Panel } from './controls';
+export { Controls } from './controls';
