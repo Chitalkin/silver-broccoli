@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { GlobalStyle } from '@/styles/global';
 import { Board } from '../board';
 import { EBoardSize } from '../board/board-enums';
-import { Panel } from '../panel';
+import { Panel } from '../controls';
 
 const Wrapper = styled.div`
   display: flex;

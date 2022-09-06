@@ -1,6 +1,6 @@
 import React from 'react';
-import { Button } from '../button';
-import { Counter } from '../counter';
+import { Button } from '@/ui/button';
+import { Counter } from './components/counter';
 import './panel.css';
 
 interface PanelState {

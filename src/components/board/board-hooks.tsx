@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { BoardSizeConfigItem } from './board-types';
-import { Cell } from '../cell';
+import { Cell } from './components/cell';
 
 export const useCells = (config: BoardSizeConfigItem): JSX.Element[] => {
   return useMemo(() => {
