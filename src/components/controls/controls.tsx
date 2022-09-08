@@ -2,14 +2,19 @@ import React from 'react';
 import styled from 'styled-components';
 import { Button } from '@/ui/button';
 import { Counter } from './components/counter';
+import { SETTINGS } from '@/styles/colors';
 
 const CotrolsWrapper = styled.div`
   display: flex;
+  justify-content: center;
   align-items: center;
   gap: 1rem;
-  background-color: #333333;
-  padding: 0.5rem 2rem;
-  border-radius: 0.5rem;
+  max-width: 550px;
+  width: 100%;
+  background-color: ${SETTINGS.background};
+  padding: 6px 20px;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
 `;
 
 export const Controls = React.memo(() => (

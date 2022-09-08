@@ -5,7 +5,7 @@ import { FONT } from '@/styles/colors';
 const StyledCounter = styled.p`
   color: ${FONT.default};
   font-weight: normal;
-  font-size: 2rem;
+  font-size: 18px;
   margin: 0;
 `;
 

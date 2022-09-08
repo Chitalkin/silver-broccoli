@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import { GlobalStyle } from '@/styles/global';
-import { Board } from '../board';
-import { EBoardSize } from '../board/board-enums';
+import { Board, EBoardSize } from '../board';
 import { Controls } from '../controls';
+import { Settings } from '../settings';
 
 const Wrapper = styled.div`
   display: flex;
@@ -17,6 +17,7 @@ export const App: React.FC = () => (
     <Wrapper>
       <Controls />
       <Board size={EBoardSize.Small} />
+      <Settings />
     </Wrapper>
   </>
 );

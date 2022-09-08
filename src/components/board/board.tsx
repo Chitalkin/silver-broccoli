@@ -17,8 +17,6 @@ const BoardWrapper = styled.div<BoardProps>`
 
   display: inline-grid;
   margin: auto;
-  border: 5px solid ${CELL.border};
-  border-radius: 5px;
 `;
 
 export const Board = React.memo<Omit<BoardProps, 'config'>>(
