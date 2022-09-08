@@ -20,3 +20,10 @@ export const CELL = {
 export const SETTINGS = {
   background: '#333333',
 } as const;
+
+export const INPUT = {
+  background: '#000000',
+  primary: '#ffffff',
+  secondary: '#333333',
+  border: '#faaaaa',
+};
