@@ -16,3 +16,7 @@ export const CELL = {
   default: '#000000',
   border: '#333333',
 } as const;
+
+export const SETTINGS = {
+  background: '#333333',
+} as const;

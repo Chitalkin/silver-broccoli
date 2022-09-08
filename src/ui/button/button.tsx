@@ -14,12 +14,15 @@ const StyledButton = styled.button`
   background-color: ${(props: ButtonProps) =>
     props.active ? BUTTON.primary : BUTTON.default};
 
-  padding: 0.2rem 1.2rem;
-  font-size: 1.6rem;
+  padding: 2px 6px;
+  font-size: 18px;
   border: 0.2rem solid ${BUTTON.border};
   border-radius: 0.4rem;
   font-weight: bold;
+  min-width: 100px;
   cursor: pointer;
+  white-space: nowrap;
+  text-transform: capitalize;
   transition: ease-in-out 0.275s all;
 `;
 
