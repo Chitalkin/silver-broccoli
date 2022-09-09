@@ -11,6 +11,7 @@ const StyledLabel = styled.label`
   position: relative;
   display: inline-flex;
   flex-direction: column;
+  gap: 4px;
   align-items: flex-start;
   color: ${INPUT.primary};
   font-size: 18px;
@@ -26,9 +27,10 @@ const StyledInput = styled.input`
   border: 1px solid ${INPUT.border};
   color: ${INPUT.primary};
   font-family: 'Courier New', Courier, monospace;
-  text-align: center;
+  text-align: left;
   border-radius: 3px;
   &::placeholder {
+    font-size: 14px;
     font-family: 'Courier New', Courier, monospace;
   }
 `;

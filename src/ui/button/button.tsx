@@ -24,6 +24,9 @@ const StyledButton = styled.button`
   white-space: nowrap;
   text-transform: capitalize;
   transition: ease-in-out 0.275s all;
+  &:hover {
+    opacity: 0.7;
+  }
 `;
 
 export const Button = React.memo<ButtonProps>(
