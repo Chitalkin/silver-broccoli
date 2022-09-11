@@ -3,13 +3,17 @@ import styled from 'styled-components';
 import { Input } from '@/ui/input';
 import { LoginFormProps } from './loging-form-types';
 import { Button } from '@/ui/button';
+import { FONT } from '@/styles/colors';
 
 const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  border: 1px solid ${FONT.secondary};
+  border-radius: 4px;
+  padding: 48px 16px;
+  gap: 12px;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
 `;
 
 export const LoginForm = React.memo<LoginFormProps>(({ onSubmit }) => {
@@ -26,16 +30,16 @@ export const LoginForm = React.memo<LoginFormProps>(({ onSubmit }) => {
   const handleSubmit = (evt: React.FormEvent<HTMLFormElement>): void => {
     evt.preventDefault();
 
-    onSubmit({ name });
+    onSubmit?.({ name });
     clearForm();
   };
 
   return (
     <StyledForm onSubmit={handleSubmit} data-testid="login-form-component">
       <Input
+        autoFocus
         onChange={handleChangeName}
         value={name}
-        label="Имя пользователя"
         placeholder="Введите имя"
       />
       <Button>Ввод</Button>

@@ -6,6 +6,7 @@ export const GlobalStyle = createGlobalStyle`
 
   html {
     box-sizing: border-box;
+    height: 100%;
   }
   *,
   *:before,
@@ -22,6 +23,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   #root {
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;

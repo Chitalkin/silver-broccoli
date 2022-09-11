@@ -1,7 +1,7 @@
-type FormData = {
+export type LoginFormData = {
   name: string;
 };
 
 export interface LoginFormProps {
-  onSubmit: (data: FormData) => void;
+  onSubmit?: (data: LoginFormData) => void;
 }
