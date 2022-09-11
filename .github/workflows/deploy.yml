@@ -13,8 +13,7 @@ jobs:
           node-version: '14.17'
       - run: npm ci
       - run: npm run test:unit
-      - run: npm run storybook
-      - run: npm run test:loki
+      - run: npm run loki:ci
 
   deploy:
     needs: test

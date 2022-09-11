@@ -13,7 +13,8 @@
     "test:loki": "loki",
     "loki:update": "loki update",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "loki:ci": "build-storybook && loki --requireReference --reactUri file:./storybook-static"
   },
   "repository": {
     "type": "git",
