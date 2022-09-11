@@ -11,6 +11,7 @@
     "test:watch": "jest --coverage --watchAll --config=configs/jest.config.js",
     "test:unit": "jest --config=configs/jest.config.js",
     "test:loki": "loki",
+    "loki:update": "loki update",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },

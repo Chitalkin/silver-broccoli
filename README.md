@@ -12,7 +12,9 @@
 
 > запуск jest в watch режиме: `npm run test:watch`
 
-> запуск проверка скриншотов: `npm test:loki`
+> запуск проверка скриншотов: `npm run test:loki`
+
+> обновление скриншотов: `npm run loki:update`
 
 #### Линтинг:
 > запуск линтера: `npm run lint`
