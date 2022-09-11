@@ -1,0 +1,53 @@
+name: Test and Deploy
+
+on: push
+
+jobs:
+  test:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: 👨‍💻 Setup Node.js environment
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14.17'
+
+      - name: 🚚 Upgrade NPM
+        run: npm install -g npm
+
+      - name: 💥 Install Dependencies
+        run: npm ci
+
+      - name: 🕵️ Unit Tests
+        run: npm run test:unit
+
+      - name: 🕵️ Visual Regression Testing
+        run: npm run loki:ci
+
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: 👨‍💻 Setup Node.js environment
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14.17'
+
+      - name: 💥 Install Dependencies
+        run: npm install --no-optional
+
+      - run: npm run build
+      - name: rsync deployments
+        uses: burnett01/rsync-deployments@5.2.1
+        with:
+          switches: -avzr --delete
+          path: public/
+          remote_path: ${{ secrets.DEVELOP_PATH }}
+          remote_host: ${{ secrets.HOST }}
+          remote_user: ${{ secrets.USERNAME }}
+          remote_key: ${{ secrets.KEY }}
