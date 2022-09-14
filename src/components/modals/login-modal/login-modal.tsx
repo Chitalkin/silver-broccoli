@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useState } from 'react';
 import { Modal } from '@/ui/modal';
 import { LoginForm, LoginFormProps, LoginFormData } from '../../login-form';
 
@@ -12,17 +12,17 @@ export const LoginModal: React.FC<LoginModalProps> = ({
 }) => {
   const [show, setIsShow] = useState(true);
 
-  const handleClose = useCallback(() => {
+  const handleClose = () => {
     if (show) {
       setIsShow(false);
       afterClose?.();
     }
-  }, [show]);
+  };
 
-  const handleSubmit = useCallback((data: LoginFormData) => {
+  const handleSubmit = (data: LoginFormData) => {
     onSubmit?.(data);
     handleClose();
-  }, []);
+  };
 
   return (
     <Modal visible={show} onClose={handleClose}>

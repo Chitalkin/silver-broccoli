@@ -34,11 +34,15 @@ export const Button = React.memo<ButtonProps>(
     const [isActive, setIsActive] = useState(active);
 
     useEffect(() => {
+      let timeoutID: number | undefined;
+
       if (isActive && typeof resetAfter === 'number') {
-        setTimeout(() => {
+        timeoutID = window.setTimeout(() => {
           setIsActive(false);
         }, resetAfter);
       }
+
+      return () => window.clearTimeout(timeoutID);
     }, [resetAfter, isActive]);
 
     const handleClick = () => {
