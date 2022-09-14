@@ -1,25 +1,33 @@
 import React from 'react';
+import styled from 'styled-components';
 import { useCells } from './board-hooks';
 import { EBoardSize } from './board-enums';
 import { getCurrentBoardConfig } from './board-utils';
-import './board.css';
+import { BoardSizeConfigItem } from './board-types';
+import { CELL } from '@/styles/colors';
 
 interface BoardProps {
   size?: EBoardSize;
+  config: BoardSizeConfigItem;
 }
 
-export const Board: React.FC<BoardProps> = ({ size = EBoardSize.Medium }) => {
-  const config = getCurrentBoardConfig(size);
-  const table = useCells(config);
+const BoardWrapper = styled.div<BoardProps>`
+  grid-template-columns: ${(props) => `repeat(${props.config.columns}, 1fr)`};
+  grid-template-rows: ${(props) => `repeat(${props.config.rows}, 1fr)`};
 
-  const styles = {
-    gridTemplateColumns: `repeat(${config.cells}, 1fr)`,
-    gridTemplateRows: `repeat(${config.rows}), 1fr`,
-  };
+  display: inline-grid;
+  margin: auto;
+`;
 
-  return (
-    <div aria-label="main-board" className="board" style={styles}>
-      {table}
-    </div>
-  );
-};
+export const Board = React.memo<Omit<BoardProps, 'config'>>(
+  ({ size = EBoardSize.Medium }) => {
+    const config = getCurrentBoardConfig(size);
+    const cells = useCells(config);
+
+    return (
+      <BoardWrapper data-testid="board-component" config={config}>
+        {cells}
+      </BoardWrapper>
+    );
+  },
+);

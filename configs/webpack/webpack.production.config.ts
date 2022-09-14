@@ -11,7 +11,7 @@ interface Configuration extends WebpackConfiguration {
 const productionConfig: Configuration = merge(commonConfig, {
   mode: 'production',
   output: {
-    path: path.resolve(__dirname, '../../dist'),
+    path: path.resolve(__dirname, '../../public'),
     filename: '[name].[contenthash].min.js',
     clean: true,
   },

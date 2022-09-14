@@ -1,12 +1,25 @@
 import React from 'react';
-import { Board } from '../board';
-import { EBoardSize } from '../board/board-enums';
-import { Panel } from '../panel';
-import './app.scss';
+import styled from 'styled-components';
+import { GlobalStyle } from '@/styles/global';
+import { Board, EBoardSize } from '../board';
+import { Controls } from '../controls';
+import { Settings } from '../settings';
+import { LoginModal } from '../modals';
+
+const Wrapper = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+`;
 
 export const App: React.FC = () => (
-  <div className="app">
-    <Panel />
-    <Board size={EBoardSize.Small} />
-  </div>
+  <>
+    <GlobalStyle />
+    <Wrapper>
+      <Controls />
+      <Board size={EBoardSize.Small} />
+      <Settings />
+      <LoginModal />
+    </Wrapper>
+  </>
 );
