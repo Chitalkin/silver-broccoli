@@ -14,7 +14,7 @@
     "loki:update": "loki update",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "loki:ci": "build-storybook && loki --requireReference --reactUri file:./storybook-static"
+    "loki:ci": "build-storybook && loki --requireReference --reactUri file:./storybook-static --chromeFlags=\"--headless --disable-gpu --hide-scrollbars --no-sandbox\""
   },
   "repository": {
     "type": "git",
