@@ -1,7 +1,7 @@
 import React from 'react';
 import { screen, render } from '@testing-library/react';
+import { EBoardSize } from '@/configs';
 import { Board } from '../board';
-import { EBoardSize } from '../board-enums';
 
 describe('Board', () => {
   it('should render correctly', () => {

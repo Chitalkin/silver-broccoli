@@ -1,10 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import { BoardSizeConfigItem, EBoardSize } from '@/configs';
 import { useCells } from './board-hooks';
-import { EBoardSize } from './board-enums';
 import { getCurrentBoardConfig } from './board-utils';
-import { BoardSizeConfigItem } from './board-types';
-import { CELL } from '@/styles/colors';
 
 interface BoardProps {
   size?: EBoardSize;

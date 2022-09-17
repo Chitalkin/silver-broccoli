@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { EBoardSize } from '@/configs';
 import { Board } from './board';
-import { EBoardSize } from './board-enums';
 
 export default {
   title: 'Board',
