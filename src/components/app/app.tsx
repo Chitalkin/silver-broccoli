@@ -1,10 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
+import { EBoardSize } from '@/configs';
 import { GlobalStyle } from '@/styles/global';
-import { Board, EBoardSize } from '../board';
+import { Board } from '../board';
 import { Controls } from '../controls';
 import { Settings } from '../settings';
-import { LoginModal } from '../modals';
+// import { LoginModal } from '../modals';
 
 const Wrapper = styled.div`
   display: flex;
@@ -19,7 +20,7 @@ export const App: React.FC = () => (
       <Controls />
       <Board size={EBoardSize.Small} />
       <Settings />
-      <LoginModal />
+      {/* <LoginModal /> */}
     </Wrapper>
   </>
 );
