@@ -1,10 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
-import { BoardSizeConfigType, ESettingsConfigItem, useConfig } from '@/configs';
+import {
+  BoardSizeConfigType,
+  ESettingsConfigItem,
+  RandomPercentageConfigType,
+  useConfig,
+} from '@/configs';
 import { GlobalStyle } from '@/styles/global';
 import { Board } from '../board';
 import { Controls } from '../controls';
-import { SettingsContainer, SettingsSize } from '../settings';
+import { SettingsContainer, SettingsFill, SettingsSize } from '../settings';
 // import { LoginModal } from '../modals';
 
 const Wrapper = styled.div`
@@ -16,6 +21,10 @@ const Wrapper = styled.div`
 export const App: React.FC = () => {
   const [currentSize, sizeConfig, onSizeChange] =
     useConfig<BoardSizeConfigType>(ESettingsConfigItem.BoardSizeConfig);
+  const [currentFill, fillConfig, onFillChange] =
+    useConfig<RandomPercentageConfigType>(
+      ESettingsConfigItem.RandomFillPersentageConfig,
+    );
 
   return (
     <>
@@ -28,6 +37,11 @@ export const App: React.FC = () => {
             current={currentSize}
             config={sizeConfig}
             onChange={onSizeChange}
+          />
+          <SettingsFill
+            current={currentFill}
+            config={fillConfig}
+            onChange={onFillChange}
           />
         </SettingsContainer>
         {/* <LoginModal /> */}
