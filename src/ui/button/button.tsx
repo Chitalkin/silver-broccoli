@@ -30,8 +30,22 @@ const StyledButton = styled.button`
 `;
 
 export const Button = React.memo<ButtonProps>(
+  ({ active, children, onClick, ...props }) => {
+    const handleClick = () => {
+      onClick?.();
+    };
+
+    return (
+      <StyledButton active={active} onClick={handleClick} {...props}>
+        {children}
+      </StyledButton>
+    );
+  },
+);
+
+export const ButtonWithTimer = React.memo<ButtonProps>(
   ({ active, children, resetAfter = 'always', onClick, ...props }) => {
-    const [isActive, setIsActive] = useState(active);
+    const [isActive, setIsActive] = useState(() => active);
 
     useEffect(() => {
       let timeoutID: number | undefined;
@@ -47,10 +61,7 @@ export const Button = React.memo<ButtonProps>(
 
     const handleClick = () => {
       setIsActive(true);
-
-      if (onClick) {
-        onClick();
-      }
+      onClick?.();
     };
 
     return (

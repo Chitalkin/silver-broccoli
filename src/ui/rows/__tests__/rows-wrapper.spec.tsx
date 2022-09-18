@@ -6,8 +6,6 @@ describe('RowLabel', () => {
   it('should render correctly', () => {
     render(<RowsWrapper data-testid="row-wrapper">wrapper</RowsWrapper>);
 
-    screen.debug()
-
     expect(screen.getByTestId('row-wrapper')).toBeInTheDocument();
   });
 });
