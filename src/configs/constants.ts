@@ -12,12 +12,12 @@ const BOARD_SIZE_CONFIGS: BoardSizeConfigType = {
     columns: 50,
   },
   medium: {
-    rows: 50,
-    columns: 70,
+    rows: 35,
+    columns: 55,
   },
   large: {
-    rows: 80,
-    columns: 100,
+    rows: 40,
+    columns: 60,
   },
 } as const;
 

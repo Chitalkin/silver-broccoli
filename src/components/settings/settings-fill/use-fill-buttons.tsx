@@ -29,7 +29,7 @@ export const useFillButtons = (
             onClick={() => onChange(percentageValue)}
             key={key}
           >
-            {item}
+            {item}%
           </Button>
         );
       }),

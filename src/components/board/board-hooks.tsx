@@ -1,12 +1,19 @@
 import React, { useMemo } from 'react';
 import { BoardSizeConfigItem } from '@/configs';
 import { Cell } from './components/cell';
+import { generateRandomCellsByPersentageAndSize } from './board-utils';
 
-export const useCells = (config: BoardSizeConfigItem): JSX.Element[] => {
-  return useMemo(() => {
-    const allCells = config.columns * config.rows;
-    const filledCells = Array.from({ length: allCells }, (_cell, i) => i + 1);
+export const useCells = (
+  size: BoardSizeConfigItem,
+  percentage: number,
+): JSX.Element[] => {
+  const cells = generateRandomCellsByPersentageAndSize(size, percentage);
 
-    return filledCells.map((cell) => <Cell size="11px" key={cell} />);
-  }, [config]);
+  return useMemo(
+    () =>
+      cells.map((cell, i) => (
+        <Cell size="11px" isActive={cell.isActive} key={i} />
+      )),
+    [cells],
+  );
 };

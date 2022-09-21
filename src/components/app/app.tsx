@@ -31,7 +31,7 @@ export const App: React.FC = () => {
       <GlobalStyle />
       <Wrapper>
         <Controls />
-        <Board config={currentSize} />
+        <Board size={currentSize} percentage={currentFill} />
         <SettingsContainer>
           <SettingsSize
             current={currentSize}
