@@ -1,18 +1,17 @@
 import React from 'react';
 import { screen, render } from '@testing-library/react';
+import { SettingsConfig } from '@/configs';
 import { Board } from '../board';
-import { EBoardSize } from '../board-enums';
 
 describe('Board', () => {
   it('should render correctly', () => {
-    render(<Board size={EBoardSize.Small} />);
+    render(
+      <Board
+        size={SettingsConfig.boardSizeConfig.small}
+        percentage={SettingsConfig.randomFillPersentageConfig.none}
+      />,
+    );
 
     expect(screen.getByTestId('board-component')).toBeInTheDocument();
-  });
-
-  it('should contain expected number of elements', () => {
-    render(<Board size={EBoardSize.Small} />);
-
-    expect(screen.getAllByTestId('cell-component')).toHaveLength(1500);
   });
 });

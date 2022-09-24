@@ -17,7 +17,9 @@ export const GlobalStyle = createGlobalStyle`
   body {
     min-width: 320px;
     height: 100%;
-    background-color: cyan;
+    background: #1e130c;
+    background: -webkit-linear-gradient(to right, #9a8478, #1e130c);
+    background: linear-gradient(to right, #9a8478, #1e130c);
     padding: 2rem;
     font-family: 'Courier New', Courier, monospace;
   }

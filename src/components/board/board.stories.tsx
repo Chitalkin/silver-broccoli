@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { SettingsConfig } from '@/configs';
 import { Board } from './board';
-import { EBoardSize } from './board-enums';
 
 export default {
   title: 'Board',
@@ -11,15 +11,18 @@ const Template: ComponentStory<typeof Board> = (args) => <Board {...args} />;
 
 export const SmallBoard = Template.bind({});
 SmallBoard.args = {
-  size: EBoardSize.Small,
+  size: SettingsConfig.boardSizeConfig.small,
+  percentage: SettingsConfig.randomFillPersentageConfig.none,
 };
 
 export const MediumBoard = Template.bind({});
 MediumBoard.args = {
-  size: EBoardSize.Medium,
+  size: SettingsConfig.boardSizeConfig.medium,
+  percentage: SettingsConfig.randomFillPersentageConfig.none,
 };
 
 export const LargeBoard = Template.bind({});
 LargeBoard.args = {
-  size: EBoardSize.Large,
+  size: SettingsConfig.boardSizeConfig.large,
+  percentage: SettingsConfig.randomFillPersentageConfig.none,
 };

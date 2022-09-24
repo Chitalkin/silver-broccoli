@@ -2,7 +2,7 @@ import React from 'react';
 import { act, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { BUTTON } from '@/styles/colors';
-import { Button } from '../button';
+import { Button, ButtonWithTimer } from '../button';
 
 describe('Button', () => {
   it('should render correctly', () => {
@@ -25,7 +25,7 @@ describe('Button', () => {
 
   it('should change background after click', async () => {
     const user = userEvent.setup();
-    render(<Button active />);
+    render(<ButtonWithTimer active />);
     const button = screen.getByRole('button');
 
     await user.click(button);
@@ -36,7 +36,7 @@ describe('Button', () => {
   it('should contain default background after 500ms with "resetAfter=500"', async () => {
     const user = userEvent.setup({ delay: null });
     jest.useFakeTimers();
-    render(<Button resetAfter={500} />);
+    render(<ButtonWithTimer resetAfter={500} />);
     const button = screen.getByRole('button');
 
     await user.click(button);
