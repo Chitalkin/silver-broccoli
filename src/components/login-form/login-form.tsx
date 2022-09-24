@@ -3,12 +3,10 @@ import styled from 'styled-components';
 import { Input } from '@/ui/input';
 import { LoginFormProps } from './loging-form-types';
 import { Button } from '@/ui/button';
-import { FONT } from '@/styles/colors';
 
 const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
-  border: 1px solid ${FONT.secondary};
   border-radius: 4px;
   padding: 48px 16px;
   gap: 12px;
@@ -40,9 +38,9 @@ export const LoginForm = React.memo<LoginFormProps>(({ onSubmit }) => {
         autoFocus
         onChange={handleChangeName}
         value={name}
-        placeholder="Введите имя"
+        placeholder="Your name"
       />
-      <Button>Ввод</Button>
+      <Button>Start</Button>
     </StyledForm>
   );
 });
