@@ -26,4 +26,9 @@ export const INPUT = {
   primary: '#ffffff',
   secondary: '#333333',
   border: '#faaaaa',
-};
+} as const;
+
+export const HEADER = {
+  background: '#0f0a07',
+  primary: '#ffffff',
+} as const;

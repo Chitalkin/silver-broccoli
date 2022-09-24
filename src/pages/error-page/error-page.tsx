@@ -1,11 +1,17 @@
 import React from 'react';
-import { Layout } from '@/components/layout';
+import styled from 'styled-components';
 
-export const ErrorPage: React.FC = () => {
-  return (
-    <Layout>
-      <h1>404 Not Found</h1>
-      <p></p>
-    </Layout>
-  );
-};
+export const StyledErrorPage = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #ffffff;
+`;
+
+export const ErrorPage: React.FC = () => (
+  <StyledErrorPage>
+    <h1>404 Not Found</h1>
+    <p></p>
+  </StyledErrorPage>
+);
