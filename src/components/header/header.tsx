@@ -39,7 +39,7 @@ interface HeaderProps {
 }
 
 export const Header: React.FC<HeaderProps> = ({ name, logout }) => (
-  <StyledHeader>
+  <StyledHeader data-testid="header-component">
     <HeaderInner>
       <HeaderLogo>silver-broccoli</HeaderLogo>
       <HeaderPanel>
