@@ -1,9 +1,15 @@
 import React from 'react';
-import './styles/global.ts';
-
 import { createRoot } from 'react-dom/client';
-import { App } from './components/app';
+import { RouterProvider } from 'react-router-dom';
+import '@/styles/global.ts';
+import { router } from '@/router';
+import { GlobalStyle } from './styles';
 
 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 const root = createRoot(document.getElementById('root')!);
-root.render(<App />);
+root.render(
+  <>
+    <GlobalStyle />
+    <RouterProvider router={router} />
+  </>,
+);

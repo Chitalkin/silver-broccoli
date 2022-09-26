@@ -18,14 +18,14 @@ describe('LoginForm', () => {
 
   it('should contain name input', () => {
     render(<LoginForm onSubmit={onSubmit} />);
-    const input = screen.getByPlaceholderText(/введите имя/i);
+    const input = screen.getByPlaceholderText(/your name/i);
 
     expect(input).toBeInTheDocument();
   });
 
   it('should contain submit button', () => {
     render(<LoginForm onSubmit={onSubmit} />);
-    const button = screen.getByRole('button', { name: /ввод/i });
+    const button = screen.getByRole('button', { name: /start/i });
 
     expect(button).toBeInTheDocument();
   });
@@ -34,8 +34,8 @@ describe('LoginForm', () => {
     const user = userEvent.setup();
     render(<LoginForm onSubmit={onSubmit} />);
 
-    const input = screen.getByPlaceholderText(/введите имя/i);
-    const button = screen.getByRole('button', { name: /ввод/i });
+    const input = screen.getByPlaceholderText(/your name/i);
+    const button = screen.getByRole('button', { name: /start/i });
 
     await user.type(input, 'Иван');
     await user.click(button);
