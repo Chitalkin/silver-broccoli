@@ -6,7 +6,7 @@ import {
 import { ESettingsConfigItem } from './enums';
 import { SettingsConfigType } from './types';
 
-const BOARD_SIZE_CONFIGS: BoardSizeConfigType = {
+export const BOARD_SIZE_CONFIGS: BoardSizeConfigType = {
   small: {
     rows: 30,
     columns: 50,
@@ -21,14 +21,14 @@ const BOARD_SIZE_CONFIGS: BoardSizeConfigType = {
   },
 } as const;
 
-const RANDOM_FILL_PERCENTAGE: RandomPercentageConfigType = {
+export const RANDOM_FILL_PERCENTAGE: RandomPercentageConfigType = {
   none: 0,
   small: 10,
   middle: 15,
   high: 20,
 } as const;
 
-const SIM_SPEED_MS: SimSpeedConfigType = {
+export const SIM_SPEED_MS: SimSpeedConfigType = {
   slow: 300,
   medium: 200,
   fast: 100,

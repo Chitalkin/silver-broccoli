@@ -1,4 +1,4 @@
 export * from './types';
 export * from './enums';
-export { SettingsConfig } from './constants';
+export * from './constants';
 export { useConfig } from './hooks';
