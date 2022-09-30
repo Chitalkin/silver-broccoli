@@ -30,4 +30,45 @@ describe('config actions', () => {
 
     expect(actions.setSimSpeed(ESimSpeed.Slow)).toEqual(expected);
   });
+
+  it('should return expected value [setConfigLoading]', () => {
+    const expected = { type: actions.SET_CONFIG_LOADING };
+
+    expect(actions.setConfigLoading()).toEqual(expected);
+  });
+
+  it('should return expected value [setConfigLoaded]', () => {
+    const expected = { type: actions.SET_CONFIG_LOADED };
+
+    expect(actions.setConfigLoaded()).toEqual(expected);
+  });
+
+  it('should return expected value [setConfigError]', () => {
+    const expected = {
+      type: actions.SET_CONFIG_ERROR,
+      payload: 'error',
+    };
+
+    expect(actions.setConfigError('error')).toEqual(expected);
+  });
+
+  it('should call dispatch with correct actions [setLoadedConfig]', () => {
+    jest.useFakeTimers();
+
+    const mockDispatch = jest.fn();
+    const mockGetState = jest.fn();
+
+    actions.setLoadedConfig()(mockDispatch, mockGetState, {});
+
+    expect(mockDispatch).toHaveBeenCalledTimes(1);
+    expect(mockDispatch).toHaveBeenCalledWith(actions.setConfigLoading());
+
+    mockDispatch.mockClear();
+    jest.runOnlyPendingTimers();
+
+    expect(mockDispatch).toHaveBeenCalledWith(actions.setConfigLoaded());
+    expect(mockDispatch).toHaveBeenCalledTimes(1);
+
+    jest.useRealTimers();
+  });
 });
