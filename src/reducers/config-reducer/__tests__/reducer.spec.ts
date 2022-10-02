@@ -12,9 +12,9 @@ import { EFetchStatus } from '@/enums';
 
 describe('config reducer', () => {
   it('should return the initial state', () => {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-expect-error
-    expect(configReducer(undefined, {})).toEqual(initialState);
+    expect(configReducer(undefined, {} as actions.configActionTypes)).toEqual(
+      initialState,
+    );
   });
 
   it('should return the modified state [setBoardSize]', () => {

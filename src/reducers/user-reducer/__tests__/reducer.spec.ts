@@ -3,9 +3,9 @@ import * as actions from '../actions';
 
 describe('user reducer', () => {
   it('should return the initial state', () => {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-expect-error
-    expect(userReducer(undefined, {})).toEqual(initialState);
+    expect(userReducer(undefined, {} as actions.UserActionTypes)).toEqual(
+      initialState,
+    );
   });
 
   it('should return the modified state [setBoardSize]', () => {
