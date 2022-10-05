@@ -1,11 +1,4 @@
-import React, { useCallback, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import {
-  BoardSizeConfigType,
-  ESettingsConfigItem,
-  RandomPercentageConfigType,
-  useConfig,
-} from '@/configs';
+import React from 'react';
 import { Board } from '@/components/board';
 import { Controls } from '@/components/controls';
 import {
@@ -15,7 +8,7 @@ import {
 } from '@/components/settings';
 import styled from 'styled-components';
 import { Header } from '@/components/header';
-import { useLocalStorage } from '@/hooks';
+import { useAuth } from '@/hooks';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -24,44 +17,17 @@ export const Wrapper = styled.div`
 `;
 
 export const GamePage: React.FC = () => {
-  const [name, setName] = useLocalStorage('name', '');
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    if (!name) {
-      navigate('/');
-    }
-  }, [name, navigate]);
-
-  const logout = useCallback(() => {
-    setName('');
-    navigate('/');
-  }, [navigate, setName]);
-
-  const [currentSize, sizeConfig, onSizeChange] =
-    useConfig<BoardSizeConfigType>(ESettingsConfigItem.BoardSizeConfig);
-  const [currentFill, fillConfig, onFillChange] =
-    useConfig<RandomPercentageConfigType>(
-      ESettingsConfigItem.RandomFillPersentageConfig,
-    );
+  const [name, logout] = useAuth();
 
   return (
     <>
       <Header name={name} logout={logout} />
       <Wrapper>
         <Controls />
-        <Board size={currentSize} percentage={currentFill} />
+        <Board />
         <SettingsContainer>
-          <SettingsSize
-            current={currentSize}
-            config={sizeConfig}
-            onChange={onSizeChange}
-          />
-          <SettingsFill
-            current={currentFill}
-            config={fillConfig}
-            onChange={onFillChange}
-          />
+          <SettingsSize />
+          <SettingsFill />
         </SettingsContainer>
       </Wrapper>
     </>

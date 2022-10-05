@@ -1,14 +1,21 @@
 import React from 'react';
-import { ERandomPercentage, RandomPercentageConfigType } from '@/configs';
+import {
+  ERandomPercentage,
+  ESettingsConfigItem,
+  RandomPercentageConfigType,
+  useConfig,
+} from '@/configs';
 import { useMemo } from 'react';
 import { Button } from '@/ui/button';
+import { setRandomFillPercentage } from '@/reducers';
 
-export const useFillButtons = (
-  current: number,
-  config: RandomPercentageConfigType,
-  onChange: (value: ERandomPercentage) => void,
-) =>
-  useMemo(
+export const useFillButtons = () => {
+  const [current, config, onChange] = useConfig<RandomPercentageConfigType>(
+    ESettingsConfigItem.RandomFillPersentageConfig,
+    setRandomFillPercentage,
+  );
+
+  return useMemo(
     () =>
       Object.keys(config).map((key) => {
         const percentageValue = key as ERandomPercentage;
@@ -35,3 +42,4 @@ export const useFillButtons = (
       }),
     [config, current, onChange],
   );
+};

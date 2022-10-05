@@ -8,11 +8,10 @@ import {
   RANDOM_FILL_PERCENTAGE,
   SIM_SPEED_MS,
 } from '@/configs';
-import { EFetchStatus } from '@/enums';
 
 describe('config reducer', () => {
   it('should return the initial state', () => {
-    expect(configReducer(undefined, {} as actions.configActionTypes)).toEqual(
+    expect(configReducer(undefined, {} as actions.ConfigActionTypes)).toEqual(
       initialState,
     );
   });
@@ -50,40 +49,6 @@ describe('config reducer', () => {
 
     expect(
       configReducer(initialState, actions.setSimSpeed(ESimSpeed.Fast)),
-    ).toEqual(modifiedState);
-  });
-
-  it('should return the modified state [setConfigLoading]', () => {
-    const modifiedState: ConfigStateType = {
-      ...initialState,
-      loading: EFetchStatus.Progress,
-    };
-
-    expect(configReducer(initialState, actions.setConfigLoading())).toEqual(
-      modifiedState,
-    );
-  });
-
-  it('should return the modified state [setConfigLoaded]', () => {
-    const modifiedState: ConfigStateType = {
-      ...initialState,
-      loading: EFetchStatus.Success,
-    };
-
-    expect(configReducer(initialState, actions.setConfigLoaded())).toEqual(
-      modifiedState,
-    );
-  });
-
-  it('should return the modified state [setConfigError]', () => {
-    const modifiedState: ConfigStateType = {
-      ...initialState,
-      loading: EFetchStatus.Error,
-      error: 'error',
-    };
-
-    expect(
-      configReducer(initialState, actions.setConfigError('error')),
     ).toEqual(modifiedState);
   });
 });

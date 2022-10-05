@@ -1,20 +1,15 @@
-import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React from 'react';
 import { LoginForm, LoginFormData } from '@/components/login-form';
-import { useLocalStorage } from '@/hooks';
+import { useAuth } from '@/hooks';
+import { useDispatch } from '@/store';
+import { setUserName } from '@/reducers';
 
 export const LoginPage: React.FC = () => {
-  const [name, setName] = useLocalStorage<string>('name', '');
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    if (name) {
-      navigate('/game');
-    }
-  }, [name, navigate]);
+  const dispatch = useDispatch();
+  useAuth();
 
   const handleSubmit = ({ name }: LoginFormData): void => {
-    setName(name);
+    dispatch(setUserName(name));
   };
 
   return <LoginForm onSubmit={handleSubmit} />;

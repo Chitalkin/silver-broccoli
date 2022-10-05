@@ -1,12 +1,17 @@
 import React, { useMemo } from 'react';
-import { BoardSizeConfigItem } from '@/configs';
+import { ESettingsConfigItem } from '@/configs';
 import { Cell } from './components/cell';
 import { generateRandomCellsByPersentageAndSize } from './board-utils';
+import { useSelector } from '@/store';
 
-export const useCells = (
-  size: BoardSizeConfigItem,
-  percentage: number,
-): JSX.Element[] => {
+export const useCells = (): JSX.Element[] => {
+  const size = useSelector(
+    (state) => state.config[ESettingsConfigItem.BoardSizeConfig],
+  );
+  const percentage = useSelector(
+    (state) => state.config[ESettingsConfigItem.RandomFillPersentageConfig],
+  );
+
   const cells = generateRandomCellsByPersentageAndSize(size, percentage);
 
   return useMemo(
