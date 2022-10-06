@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import { BoardSizeConfigItem, ESettingsConfigItem } from '@/configs';
+import { BoardSizeConfigItem } from '@/configs';
 import { useCells } from './board-hooks';
 import { useSelector } from '@/store';
+import { getBoardSize } from './board-selectors';
 
 const BoardWrapper = styled.div<{ size: BoardSizeConfigItem }>`
   grid-template-columns: ${(props) => `repeat(${props.size.columns}, 1fr)`};
@@ -13,9 +14,7 @@ const BoardWrapper = styled.div<{ size: BoardSizeConfigItem }>`
 `;
 
 export const Board = React.memo(() => {
-  const size = useSelector(
-    (state) => state.config[ESettingsConfigItem.BoardSizeConfig],
-  );
+  const size = useSelector(getBoardSize);
   const cells = useCells();
 
   return (

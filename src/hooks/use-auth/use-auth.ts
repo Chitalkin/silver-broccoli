@@ -14,6 +14,8 @@ export const useAuth = (): Readonly<[string, Logout]> => {
   useEffect(() => {
     if (name) {
       navigate('/game');
+    } else {
+      navigate('/');
     }
   }, [name, navigate]);
 

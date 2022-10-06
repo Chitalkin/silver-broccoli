@@ -1,4 +1,4 @@
-import { state } from '@/__tests__/mocks';
+import { state } from '@/tests/mocks';
 import { getUserName, getIsUserLogged } from '../user-selectors';
 
 describe('User selectors', () => {
