@@ -9,7 +9,9 @@ export const LoginPage: React.FC = () => {
   useAuth();
 
   const handleSubmit = ({ name }: LoginFormData): void => {
-    dispatch(setUserName(name));
+    if (name) {
+      dispatch(setUserName(name));
+    }
   };
 
   return <LoginForm onSubmit={handleSubmit} />;
