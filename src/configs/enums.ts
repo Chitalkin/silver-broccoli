@@ -6,7 +6,6 @@ export enum EBoardSize {
 
 export enum ESimSpeed {
   Slow = 'slow',
-  Medium = 'medium',
   Fast = 'fast',
 }
 

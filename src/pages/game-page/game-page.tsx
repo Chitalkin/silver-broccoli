@@ -5,6 +5,7 @@ import {
   SettingsContainer,
   SettingsFill,
   SettingsSize,
+  SettingsSpeed,
 } from '@/components/settings';
 import styled from 'styled-components';
 import { Header } from '@/components/header';
@@ -28,6 +29,7 @@ export const GamePage: React.FC = () => {
         <SettingsContainer>
           <SettingsSize />
           <SettingsFill />
+          <SettingsSpeed />
         </SettingsContainer>
       </Wrapper>
     </>

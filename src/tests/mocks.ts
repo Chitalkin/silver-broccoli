@@ -20,4 +20,14 @@ export const state: RootState = {
       RANDOM_FILL_PERCENTAGE[ERandomPercentage.None],
     [ESettingsConfigItem.SimSpeedConfig]: SIM_SPEED_MS[ESimSpeed.Slow],
   },
+  game: {
+    generation: 10,
+    isGameRunning: true,
+    intervalId: 2,
+    population: [
+      [0, 1, 1],
+      [0, 1, 1],
+      [0, 0, 0],
+    ],
+  },
 };

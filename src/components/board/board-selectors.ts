@@ -12,3 +12,21 @@ export const getBoardSize = (state: RootState): BoardSizeConfigItem =>
  */
 export const getRandomFillPersentage = (state: RootState): number =>
   state.config[ESettingsConfigItem.RandomFillPersentageConfig];
+
+/**
+ * Возвращает скорость генерации новой популяции
+ */
+export const getGameSpeed = (state: RootState): number =>
+  state.config[ESettingsConfigItem.SimSpeedConfig];
+
+/**
+ * Возвращает состояние популяции
+ */
+export const getPopulation = (state: RootState): number[][] | null =>
+  state.game.population;
+
+/**
+ * Возвращает true, если игра запущена
+ */
+export const getIsGameRunning = (state: RootState): boolean =>
+  state.game.isGameRunning;
