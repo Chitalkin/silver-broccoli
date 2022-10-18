@@ -1,18 +1,21 @@
 import React from 'react';
 import {
-  BoardSizeConfigItem,
   EBoardSize,
   BoardSizeConfigType,
+  useConfig,
+  ESettingsConfigItem,
 } from '@/configs';
 import { useMemo } from 'react';
 import { Button } from '@/ui/button';
+import { setBoardSize } from '@/reducers';
 
-export const useSizeButtons = (
-  currentSize: BoardSizeConfigItem,
-  config: BoardSizeConfigType,
-  onChange: (value: EBoardSize) => void,
-) =>
-  useMemo(
+export const useSizeButtons = () => {
+  const [currentSize, config, onChange] = useConfig<BoardSizeConfigType>(
+    ESettingsConfigItem.BoardSizeConfig,
+    setBoardSize,
+  );
+
+  return useMemo(
     () =>
       Object.keys(config).map((key) => {
         const sizeName = key as EBoardSize;
@@ -33,3 +36,4 @@ export const useSizeButtons = (
       }),
     [config, onChange, currentSize],
   );
+};

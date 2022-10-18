@@ -9,23 +9,17 @@ import {
   RANDOM_FILL_PERCENTAGE,
   SIM_SPEED_MS,
 } from '@/configs';
-import { EFetchStatus } from '@/enums';
 import {
   SET_BOARD_SIZE,
   SET_RANDOM_FILL_PERCENTAGE,
   SET_SIM_SPEED,
-  SET_CONFIG_LOADING,
-  SET_CONFIG_LOADED,
-  SET_CONFIG_ERROR,
-  configActionTypes,
+  ConfigActionTypes,
 } from './actions';
 
 export type ConfigStateType = {
   [ESettingsConfigItem.BoardSizeConfig]: BoardSizeConfigItem;
   [ESettingsConfigItem.RandomFillPersentageConfig]: number;
   [ESettingsConfigItem.SimSpeedConfig]: number;
-  loading: EFetchStatus;
-  error: string;
 };
 
 export const initialState: ConfigStateType = {
@@ -33,11 +27,9 @@ export const initialState: ConfigStateType = {
   [ESettingsConfigItem.RandomFillPersentageConfig]:
     RANDOM_FILL_PERCENTAGE[ERandomPercentage.None],
   [ESettingsConfigItem.SimSpeedConfig]: SIM_SPEED_MS[ESimSpeed.Slow],
-  loading: EFetchStatus.None,
-  error: '',
 };
 
-export const configReducer: Reducer<ConfigStateType, configActionTypes> = (
+export const configReducer: Reducer<ConfigStateType, ConfigActionTypes> = (
   state = initialState,
   action,
 ): ConfigStateType => {
@@ -60,25 +52,6 @@ export const configReducer: Reducer<ConfigStateType, configActionTypes> = (
       return {
         ...state,
         [ESettingsConfigItem.SimSpeedConfig]: SIM_SPEED_MS[action.payload],
-      };
-
-    case SET_CONFIG_LOADING:
-      return {
-        ...state,
-        loading: EFetchStatus.Progress,
-      };
-
-    case SET_CONFIG_LOADED:
-      return {
-        ...state,
-        loading: EFetchStatus.Success,
-      };
-
-    case SET_CONFIG_ERROR:
-      return {
-        ...state,
-        loading: EFetchStatus.Error,
-        error: action.payload,
       };
 
     default:

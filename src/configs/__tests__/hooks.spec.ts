@@ -1,129 +1,67 @@
-import { renderHook, act } from '@testing-library/react';
+import { renderHook } from '@testing-library/react';
 import {
-  ERandomPercentage,
+  BoardSizeConfigItem,
+  BoardSizeConfigType,
+  BOARD_SIZE_CONFIGS,
+  EBoardSize,
   ESettingsConfigItem,
   SettingsConfig,
 } from '@/configs';
-import * as defaultSettings from '../hooks/useDefaultConfigValue';
+import * as hooks from '@/store/hooks';
 import { useConfig } from '../hooks/useConfig';
+import { setBoardSize } from '@/reducers';
 
-describe('Settings hooks', () => {
-  describe('useDefaultConfig', () => {
-    it('should return small for BoardSizeConfig', () => {
-      const result = defaultSettings.useDefaultConfigValue(
-        ESettingsConfigItem.BoardSizeConfig,
-      );
-
-      expect(result).toEqual(SettingsConfig.boardSizeConfig.small);
-    });
-
-    it('should return none for RandomFillPersentageConfig', () => {
-      const result = defaultSettings.useDefaultConfigValue(
-        ESettingsConfigItem.RandomFillPersentageConfig,
-      );
-
-      expect(result).toEqual(SettingsConfig.randomFillPersentageConfig.none);
-    });
-
-    it('should return slow for SimSpeedConfig', () => {
-      const result = defaultSettings.useDefaultConfigValue(
-        ESettingsConfigItem.SimSpeedConfig,
-      );
-
-      expect(result).toEqual(SettingsConfig.simSpeedConfig.slow);
-    });
-
-    it('should throw error if config is invalid', () => {
-      expect(defaultSettings.useDefaultConfigValue).toThrowError(
-        new Error('Invalid config'),
-      );
-    });
+describe('Config hooks', () => {
+  afterAll(() => {
+    jest.restoreAllMocks();
   });
 
-  describe('useConfig', () => {
-    it('should call useDefaultConfigValue', () => {
-      const defaultConfigSpy = jest.spyOn(
-        defaultSettings,
-        'useDefaultConfigValue',
-      );
+  it('should return the expected config settings', () => {
+    const mockBoardSize = BOARD_SIZE_CONFIGS[EBoardSize.Small];
 
-      renderHook(() => useConfig(ESettingsConfigItem.BoardSizeConfig));
+    jest.spyOn(hooks, 'useSelector').mockReturnValue(mockBoardSize);
+    jest.spyOn(hooks, 'useDispatch').mockReturnValue(jest.fn());
 
-      expect(defaultConfigSpy).toHaveBeenCalledTimes(1);
+    const { result } = renderHook(() =>
+      useConfig(ESettingsConfigItem.BoardSizeConfig, setBoardSize),
+    );
 
-      defaultConfigSpy.mockRestore();
-    });
+    const returnedSettings = result.current as unknown as [
+      BoardSizeConfigItem,
+      BoardSizeConfigType,
+      (value: EBoardSize) => void,
+    ];
 
-    it('should change config value', () => {
-      const { result } = renderHook(() =>
-        useConfig(ESettingsConfigItem.RandomFillPersentageConfig),
-      );
+    expect(returnedSettings).toEqual(
+      expect.arrayContaining([
+        mockBoardSize,
+        SettingsConfig.boardSizeConfig,
+        expect.any(Function),
+      ]),
+    );
+  });
 
-      act(() => {
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        result.current[2](ERandomPercentage.High);
-      });
+  it('should call dispatch with expected action #current', () => {
+    const mockBoardSize = BOARD_SIZE_CONFIGS[EBoardSize.Small];
+    const mockDispatch = jest.fn();
 
-      expect(result.current[0]).toBe(
-        SettingsConfig.randomFillPersentageConfig[ERandomPercentage.High],
-      );
-    });
+    jest.spyOn(hooks, 'useSelector').mockReturnValue(mockBoardSize);
+    jest.spyOn(hooks, 'useDispatch').mockReturnValue(mockDispatch);
 
-    it('should return the expected config settings for BoardSizeConfig', () => {
-      const { result } = renderHook(() =>
-        useConfig(ESettingsConfigItem.BoardSizeConfig),
-      );
+    const { result } = renderHook(() =>
+      useConfig(ESettingsConfigItem.BoardSizeConfig, setBoardSize),
+    );
 
-      expect(result.current).toEqual(
-        expect.arrayContaining([
-          expect.any(Object),
-          SettingsConfig.boardSizeConfig,
-          expect.any(Function),
-        ]),
-      );
-    });
+    const returnedSettings = result.current as unknown as [
+      BoardSizeConfigItem,
+      BoardSizeConfigType,
+      (value: EBoardSize) => void,
+    ];
 
-    it('should return the expected config settings for boardSizeConfig', () => {
-      const { result } = renderHook(() =>
-        useConfig(ESettingsConfigItem.BoardSizeConfig),
-      );
+    const onChange = returnedSettings[2];
+    onChange(EBoardSize.Medium);
 
-      expect(result.current).toEqual(
-        expect.arrayContaining([
-          expect.any(Object),
-          SettingsConfig.boardSizeConfig,
-          expect.any(Function),
-        ]),
-      );
-    });
-
-    it('should return the expected config settings for simSpeedConfig', () => {
-      const { result } = renderHook(() =>
-        useConfig(ESettingsConfigItem.SimSpeedConfig),
-      );
-
-      expect(result.current).toEqual(
-        expect.arrayContaining([
-          expect.any(Number),
-          SettingsConfig.simSpeedConfig,
-          expect.any(Function),
-        ]),
-      );
-    });
-
-    it('should return the expected config settings for randomFillPersentageConfig', () => {
-      const { result } = renderHook(() =>
-        useConfig(ESettingsConfigItem.RandomFillPersentageConfig),
-      );
-
-      expect(result.current).toEqual(
-        expect.arrayContaining([
-          expect.any(Number),
-          SettingsConfig.randomFillPersentageConfig,
-          expect.any(Function),
-        ]),
-      );
-    });
+    expect(mockDispatch).toHaveBeenCalledTimes(1);
+    expect(mockDispatch).toHaveBeenCalledWith(setBoardSize(EBoardSize.Medium));
   });
 });

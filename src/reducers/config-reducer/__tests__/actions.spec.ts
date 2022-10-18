@@ -31,44 +31,23 @@ describe('config actions', () => {
     expect(actions.setSimSpeed(ESimSpeed.Slow)).toEqual(expected);
   });
 
-  it('should return expected value [setConfigLoading]', () => {
-    const expected = { type: actions.SET_CONFIG_LOADING };
+  // it('should call dispatch with correct actions [setLoadedConfig]', () => {
+  //   jest.useFakeTimers();
 
-    expect(actions.setConfigLoading()).toEqual(expected);
-  });
+  //   const mockDispatch = jest.fn();
+  //   const mockGetState = jest.fn();
 
-  it('should return expected value [setConfigLoaded]', () => {
-    const expected = { type: actions.SET_CONFIG_LOADED };
+  //   actions.setLoadedConfig()(mockDispatch, mockGetState, {});
 
-    expect(actions.setConfigLoaded()).toEqual(expected);
-  });
+  //   expect(mockDispatch).toHaveBeenCalledTimes(1);
+  //   expect(mockDispatch).toHaveBeenCalledWith(actions.setConfigLoading());
 
-  it('should return expected value [setConfigError]', () => {
-    const expected = {
-      type: actions.SET_CONFIG_ERROR,
-      payload: 'error',
-    };
+  //   mockDispatch.mockClear();
+  //   jest.runOnlyPendingTimers();
 
-    expect(actions.setConfigError('error')).toEqual(expected);
-  });
+  //   expect(mockDispatch).toHaveBeenCalledWith(actions.setConfigLoaded());
+  //   expect(mockDispatch).toHaveBeenCalledTimes(1);
 
-  it('should call dispatch with correct actions [setLoadedConfig]', () => {
-    jest.useFakeTimers();
-
-    const mockDispatch = jest.fn();
-    const mockGetState = jest.fn();
-
-    actions.setLoadedConfig()(mockDispatch, mockGetState, {});
-
-    expect(mockDispatch).toHaveBeenCalledTimes(1);
-    expect(mockDispatch).toHaveBeenCalledWith(actions.setConfigLoading());
-
-    mockDispatch.mockClear();
-    jest.runOnlyPendingTimers();
-
-    expect(mockDispatch).toHaveBeenCalledWith(actions.setConfigLoaded());
-    expect(mockDispatch).toHaveBeenCalledTimes(1);
-
-    jest.useRealTimers();
-  });
+  //   jest.useRealTimers();
+  // });
 });
