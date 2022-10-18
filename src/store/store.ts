@@ -12,7 +12,16 @@ const sagaMiddleware = createSagaMiddleware();
 export const store = createStore(
   rootReducer,
   load(),
-  composeWithDevTools(applyMiddleware(thunk, save(), logger, sagaMiddleware)),
+  composeWithDevTools(
+    applyMiddleware(
+      thunk,
+      save({
+        ignoreStates: ['game'],
+      }),
+      logger,
+      sagaMiddleware,
+    ),
+  ),
 );
 
 sagaMiddleware.run(rootSaga);

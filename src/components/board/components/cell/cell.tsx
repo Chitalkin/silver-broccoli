@@ -4,7 +4,8 @@ import { CELL } from '@/styles/colors';
 
 interface CellProps {
   size: string;
-  isActive?: boolean;
+  onClick: () => void;
+  isActive: boolean;
 }
 
 const StyledCell = styled.span<CellProps>`
@@ -21,6 +22,11 @@ const StyledCell = styled.span<CellProps>`
   cursor: pointer;
 `;
 
-export const Cell = React.memo<CellProps>(({ size, isActive }) => (
-  <StyledCell data-testid="cell-component" isActive={isActive} size={size} />
+export const Cell = React.memo<CellProps>(({ size, onClick, isActive }) => (
+  <StyledCell
+    data-testid="cell-component"
+    onClick={onClick}
+    isActive={isActive}
+    size={size}
+  />
 ));

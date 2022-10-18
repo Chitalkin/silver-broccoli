@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { BoardSizeConfigItem } from '@/configs';
-import { useCells } from './board-hooks';
+import { usePopulation } from './board-hooks';
 import { useSelector } from '@/store';
 import { getBoardSize } from './board-selectors';
 
@@ -15,11 +15,11 @@ const BoardWrapper = styled.div<{ size: BoardSizeConfigItem }>`
 
 export const Board = React.memo(() => {
   const size = useSelector(getBoardSize);
-  const cells = useCells();
+  const population = usePopulation();
 
   return (
     <BoardWrapper data-testid="board-component" size={size}>
-      {cells}
+      {population}
     </BoardWrapper>
   );
 });

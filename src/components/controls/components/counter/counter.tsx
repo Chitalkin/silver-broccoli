@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { FONT } from '@/styles/colors';
+import { useSelector } from '@/store';
+import { getGameGeneration } from '../../controls-selectors';
 
 const StyledCounter = styled.p`
   color: ${FONT.default};
@@ -9,13 +11,13 @@ const StyledCounter = styled.p`
   margin: 0;
 `;
 
-interface CounterProps {
-  count: number;
-}
+export const Counter = React.memo(() => {
+  const count = useSelector(getGameGeneration);
 
-export const Counter = React.memo<CounterProps>(({ count }) => (
-  <StyledCounter className="counter" aria-label="current-element-count">
-    <span>Generation: </span>
-    <span>{count}</span>
-  </StyledCounter>
-));
+  return (
+    <StyledCounter className="counter" aria-label="current-element-count">
+      <span>Generation: </span>
+      <span>{count}</span>
+    </StyledCounter>
+  );
+});

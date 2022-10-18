@@ -1,8 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import { ButtonWithTimer } from '@/ui/button';
-import { Counter } from './components/counter';
 import { SETTINGS } from '@/styles/colors';
+import { Counter } from './components/counter';
+import { ControlRun } from './components/run';
+import { ControlPause } from './components/pause';
+import { ControlClear } from './components/clear';
 
 const CotrolsWrapper = styled.div`
   display: flex;
@@ -19,9 +21,9 @@ const CotrolsWrapper = styled.div`
 
 export const Controls = React.memo(() => (
   <CotrolsWrapper data-testid="controls-component">
-    <ButtonWithTimer resetAfter={1000}>Run</ButtonWithTimer>
-    <ButtonWithTimer resetAfter={1000}>Pause</ButtonWithTimer>
-    <ButtonWithTimer resetAfter={1000}>Clear</ButtonWithTimer>
-    <Counter count={0} />
+    <ControlRun />
+    <ControlPause />
+    <ControlClear />
+    <Counter />
   </CotrolsWrapper>
 ));

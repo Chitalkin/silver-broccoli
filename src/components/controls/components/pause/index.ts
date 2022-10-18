@@ -1,0 +1,1 @@
+export { ControlPause } from './pause';
