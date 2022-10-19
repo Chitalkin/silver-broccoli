@@ -24,7 +24,6 @@ export const BOARD_SIZE_CONFIGS: BoardSizeConfigType = {
 export const RANDOM_FILL_PERCENTAGE: RandomPercentageConfigType = {
   none: 0,
   small: 10,
-  middle: 15,
   high: 20,
 } as const;
 

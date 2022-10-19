@@ -1,11 +1,11 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
+import { renderWithProviders } from '@/tests/utils';
 import { Controls } from '../controls';
 
-describe('Counter', () => {
+describe('Controls', () => {
   it('should render corectly', () => {
-    render(<Controls />);
-
+    renderWithProviders(<Controls />);
     expect(screen.getByTestId(/controls-component/)).toBeInTheDocument();
   });
 });

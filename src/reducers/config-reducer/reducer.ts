@@ -1,14 +1,16 @@
 import { Reducer } from 'redux';
+import { BoardSizeConfigItem } from '@/configs/types';
 import {
-  BoardSizeConfigItem,
-  BOARD_SIZE_CONFIGS,
   EBoardSize,
   ERandomPercentage,
   ESettingsConfigItem,
   ESimSpeed,
+} from '@/configs/enums';
+import {
+  BOARD_SIZE_CONFIGS,
   RANDOM_FILL_PERCENTAGE,
   SIM_SPEED_MS,
-} from '@/configs';
+} from '@/configs/constants';
 import {
   SET_BOARD_SIZE,
   SET_RANDOM_FILL_PERCENTAGE,

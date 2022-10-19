@@ -24,7 +24,7 @@ export const useSpeedButtons = () => {
 
         return (
           <Button active={isActive} onClick={() => onChange(speed)} key={key}>
-            Speed: {speed}
+            {speed}
           </Button>
         );
       }),

@@ -14,8 +14,6 @@ export const useConfig = <T>(
   configItem: ESettingsConfigItem,
   action: ActionCreator<ConfigActionTypes>,
 ): Readonly<[T[keyof T], T, (value: keyof T) => void]> => {
-  // кешировать данные на уровне конфига
-
   const dispatch = useDispatch();
   const configValue = useSelector(
     (state) => state.config[configItem],

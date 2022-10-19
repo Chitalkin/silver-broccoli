@@ -7,12 +7,4 @@ export const setUserName = (name: string) =>
     payload: name,
   } as const);
 
-export const setUserIsLogged = (isLogged: boolean) =>
-  ({
-    type: SET_USER_IS_LOGGED,
-    payload: isLogged,
-  } as const);
-
-export type UserActionTypes =
-  | ReturnType<typeof setUserName>
-  | ReturnType<typeof setUserIsLogged>;
+export type UserActionTypes = ReturnType<typeof setUserName>;

@@ -1,10 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { SETTINGS } from '@/styles/colors';
-import { Counter } from './components/counter';
-import { ControlRun } from './components/run';
-import { ControlPause } from './components/pause';
-import { ControlClear } from './components/clear';
+import { ControlClear, ControlPause, ControlRun, Counter } from './components';
 
 const CotrolsWrapper = styled.div`
   display: flex;

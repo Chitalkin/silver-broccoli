@@ -1,4 +1,4 @@
-import { EBoardSize, ERandomPercentage, ESimSpeed } from '@/configs';
+import { EBoardSize, ERandomPercentage, ESimSpeed } from '@/configs/enums';
 
 export const SET_BOARD_SIZE = 'SET_BOARD_SIZE';
 export const SET_SIM_SPEED = 'SET_SIM_SPEED';

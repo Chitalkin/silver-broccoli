@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { FONT } from '@/styles/colors';
 import { useSelector } from '@/store';
-import { getGameGeneration } from '../../controls-selectors';
+import { getGenerationNumber } from '@/selectors';
 
 const StyledCounter = styled.p`
   color: ${FONT.default};
@@ -12,7 +12,7 @@ const StyledCounter = styled.p`
 `;
 
 export const Counter = React.memo(() => {
-  const count = useSelector(getGameGeneration);
+  const count = useSelector(getGenerationNumber);
 
   return (
     <StyledCounter className="counter" aria-label="current-element-count">

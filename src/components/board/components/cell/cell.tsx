@@ -1,18 +1,24 @@
 import React from 'react';
 import styled from 'styled-components';
 import { CELL } from '@/styles/colors';
+import { CellStatus } from '../../board-utils';
 
 interface CellProps {
-  size: string;
-  onClick: () => void;
-  isActive: boolean;
+  rowIndex: number;
+  cellIndex: number;
+  population: CellStatus[][];
+  onClick: (
+    population: CellStatus[][],
+    rowIndex: number,
+    cellIndex: number,
+  ) => void;
+  status: CellStatus;
 }
 
-const StyledCell = styled.span<CellProps>`
+const StyledCell = styled.span<{ size: string; status: 1 | 0 }>`
   width: ${(props) => props.size};
   height: ${(props) => props.size};
-  background-color: ${(props) =>
-    props.isActive ? CELL.primary : CELL.default};
+  background-color: ${(props) => (props.status ? CELL.primary : CELL.default)};
 
   display: flex;
   align-items: center;
@@ -22,11 +28,19 @@ const StyledCell = styled.span<CellProps>`
   cursor: pointer;
 `;
 
-export const Cell = React.memo<CellProps>(({ size, onClick, isActive }) => (
-  <StyledCell
-    data-testid="cell-component"
-    onClick={onClick}
-    isActive={isActive}
-    size={size}
-  />
-));
+export const Cell = React.memo<CellProps>(
+  ({ onClick, status, population, rowIndex, cellIndex }) => {
+    const handleClick = () => {
+      onClick(population, rowIndex, cellIndex);
+    };
+
+    return (
+      <StyledCell
+        data-testid="cell-component"
+        onClick={handleClick}
+        status={status}
+        size="11px"
+      />
+    );
+  },
+);

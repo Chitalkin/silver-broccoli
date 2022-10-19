@@ -12,7 +12,6 @@ export enum ESimSpeed {
 export enum ERandomPercentage {
   None = 'none',
   Small = 'small',
-  Middle = 'middle',
   High = 'high',
 }
 

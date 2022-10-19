@@ -1,2 +1,2 @@
-export { setUserIsLogged, setUserName } from './actions';
+export * from './actions';
 export { userReducer } from './reducer';

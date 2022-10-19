@@ -12,10 +12,9 @@ describe('user reducer', () => {
     const modifiedState: GameStateType = {
       ...initialState,
       isGameRunning: true,
-      intervalId: 1,
     };
 
-    expect(gameReducer(initialState, actions.setGameStart(1))).toEqual(
+    expect(gameReducer(initialState, actions.setGameStart())).toEqual(
       modifiedState,
     );
   });
@@ -24,7 +23,6 @@ describe('user reducer', () => {
     const modifiedState: GameStateType = {
       ...initialState,
       isGameRunning: false,
-      intervalId: null,
     };
 
     expect(gameReducer(initialState, actions.setGameStop())).toEqual(
@@ -38,27 +36,14 @@ describe('user reducer', () => {
     );
   });
 
-  it('should return the modified state [setPopulation]', () => {
-    const mockPopulation = [[1]];
+  it('should return the modified state [setIncreaseGeneration]', () => {
     const modifiedState: GameStateType = {
       ...initialState,
-      population: mockPopulation,
+      generation: 1,
     };
 
-    expect(
-      gameReducer(initialState, actions.setPopulation(mockPopulation)),
-    ).toEqual(modifiedState);
-  });
-
-  it('should return the modified state [setGeneration]', () => {
-    const mockGeneration = 1;
-    const modifiedState: GameStateType = {
-      ...initialState,
-      generation: mockGeneration,
-    };
-
-    expect(
-      gameReducer(initialState, actions.setGeneration(mockGeneration)),
-    ).toEqual(modifiedState);
+    expect(gameReducer(initialState, actions.setIncreaseGeneration())).toEqual(
+      modifiedState,
+    );
   });
 });

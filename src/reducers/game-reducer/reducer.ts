@@ -3,23 +3,18 @@ import {
   SET_GAME_CLEAR,
   SET_GAME_START,
   SET_GAME_STOP,
-  SET_GENERATION,
-  SET_POPULATION,
+  SET_INCREASE_GENERATION,
   GameActionTypes,
 } from './actions';
 
 export type GameStateType = {
   generation: number;
   isGameRunning: boolean;
-  intervalId: number | null;
-  population: number[][] | null;
 };
 
 export const initialState: GameStateType = {
   generation: 0,
   isGameRunning: false,
-  intervalId: null,
-  population: null,
 };
 
 export const gameReducer: Reducer<GameStateType, GameActionTypes> = (
@@ -40,19 +35,12 @@ export const gameReducer: Reducer<GameStateType, GameActionTypes> = (
       return {
         ...state,
         isGameRunning: false,
-        intervalId: null,
       };
 
-    case SET_GENERATION:
+    case SET_INCREASE_GENERATION:
       return {
         ...state,
-        generation: action.payload,
-      };
-
-    case SET_POPULATION:
-      return {
-        ...state,
-        population: action.payload,
+        generation: ++state.generation,
       };
 
     default:

@@ -16,5 +16,6 @@ module.exports = {
   plugins: ['@typescript-eslint'],
   rules: {
     '@typescript-eslint/ban-types': 'off',
+    'react-hooks/rules-of-hooks': 'error',
   },
 };

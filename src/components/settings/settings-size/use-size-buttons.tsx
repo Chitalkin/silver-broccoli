@@ -30,7 +30,7 @@ export const useSizeButtons = () => {
             onClick={() => onChange(sizeName)}
             key={key}
           >
-            Size: {item.rows}x{item.columns}
+            {item.rows}x{item.columns}
           </Button>
         );
       }),

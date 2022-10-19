@@ -1,9 +1,11 @@
 import { BoardSizeConfigItem } from '@/configs';
 
+export type CellStatus = 1 | 0;
+
 /**
  * Возвращает данные данные для отрисови доски (двумерный массив)
  */
-export const makeEmptyBoard = (cols: number, rows: number): number[][] => {
+export const makeEmptyBoard = (cols: number, rows: number): CellStatus[][] => {
   const board = new Array(cols);
 
   for (let i = 0; i < cols; i++) {
@@ -33,7 +35,7 @@ export const getRandomTuple = (
 export const fillBoardRandomly = (
   { columns, rows }: BoardSizeConfigItem,
   percentage: number,
-): number[][] => {
+): CellStatus[][] => {
   const board = makeEmptyBoard(columns, rows);
   const cellsToFill = (columns * rows * percentage) / 100;
 
@@ -67,7 +69,7 @@ export const countNeighbours = (
   return sum;
 };
 
-export const getNextGeneration = (prev: number[][]): number[][] => {
+export const getNextGeneration = (prev: CellStatus[][]): CellStatus[][] => {
   const columns = prev.length;
   const rows = prev[0].length;
 

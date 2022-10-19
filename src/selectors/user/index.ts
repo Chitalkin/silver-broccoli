@@ -1,1 +1,1 @@
-export { getUserName, getIsUserLogged } from './user-selectors';
+export { getUserName } from './user-selectors';

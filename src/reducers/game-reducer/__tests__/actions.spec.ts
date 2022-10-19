@@ -25,23 +25,11 @@ describe('game actions', () => {
     expect(actions.setGameStop()).toEqual(expected);
   });
 
-  it('should return expected value [setGeneration]', () => {
-    const mockGeneration = 1;
+  it('should return the expected value [setIncreaseGeneration]', () => {
     const expected = {
-      type: actions.SET_GENERATION,
-      payload: mockGeneration,
+      type: actions.SET_INCREASE_GENERATION,
     };
 
-    expect(actions.setGeneration(mockGeneration)).toEqual(expected);
-  });
-
-  it('should return expected value [setPopulation]', () => {
-    const mockPopulation = [[1]];
-    const expected = {
-      type: actions.SET_POPULATION,
-      payload: mockPopulation,
-    };
-
-    expect(actions.setPopulation(mockPopulation)).toEqual(expected);
+    expect(actions.setIncreaseGeneration()).toEqual(expected);
   });
 });

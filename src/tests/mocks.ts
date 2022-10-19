@@ -9,10 +9,9 @@ import {
 } from '@/configs';
 import type { RootState } from '@/store';
 
-export const state: RootState = {
+export const mockState: RootState = {
   user: {
     name: 'Ivan',
-    isLogged: false,
   },
   config: {
     [ESettingsConfigItem.BoardSizeConfig]: BOARD_SIZE_CONFIGS[EBoardSize.Small],
@@ -23,11 +22,5 @@ export const state: RootState = {
   game: {
     generation: 10,
     isGameRunning: true,
-    intervalId: 2,
-    population: [
-      [0, 1, 1],
-      [0, 1, 1],
-      [0, 0, 0],
-    ],
   },
 };

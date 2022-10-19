@@ -8,17 +8,6 @@ describe('user reducer', () => {
     );
   });
 
-  it('should return the modified state [setBoardSize]', () => {
-    const modifiedState: UserStateType = {
-      ...initialState,
-      isLogged: false,
-    };
-
-    expect(userReducer(initialState, actions.setUserIsLogged(false))).toEqual(
-      modifiedState,
-    );
-  });
-
   it('should return the modified state [setRandomFillPercentage]', () => {
     const modifiedState: UserStateType = {
       ...initialState,

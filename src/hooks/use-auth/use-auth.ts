@@ -2,7 +2,7 @@ import { useCallback, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getUserName } from '@/selectors';
 import { useDispatch, useSelector } from '@/store';
-import { setUserName, setGameClear } from '@/reducers';
+import { setUserName } from '@/reducers';
 
 type Logout = () => void;
 
@@ -15,7 +15,6 @@ export const useAuth = (): Readonly<[string, Logout]> => {
     if (name) {
       navigate('/game');
     } else {
-      dispatch(setGameClear());
       navigate('/');
     }
   }, [dispatch, name, navigate]);
