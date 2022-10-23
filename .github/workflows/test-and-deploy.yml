@@ -12,7 +12,7 @@ jobs:
       - name: 👨‍💻 Setup Node.js environment
         uses: actions/setup-node@v3
         with:
-          node-version: '14.17'
+          node-version: '14.18'
 
       - name: 🚚 Upgrade NPM
         run: npm install -g npm
@@ -25,6 +25,9 @@ jobs:
 
       - name: 🕵️ Visual Regression Testing
         run: npm run loki:ci
+
+      - name: 🕵️ Stryker
+        run: npm run stryker
 
   deploy:
     needs: test

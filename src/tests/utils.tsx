@@ -33,3 +33,15 @@ export function renderWithProviders(
   // Return an object with the store and all of RTL's query functions
   return { store, ...render(ui, { wrapper: Wrapper, ...renderOptions }) };
 }
+
+export const hookWrapper =
+  (state: RootState = mockState) =>
+  ({ children }: PropsWithChildren<{}>) => {
+    const store = createStore(rootReducer, state);
+
+    return (
+      <Provider store={store}>
+        <MemoryRouter>{children}</MemoryRouter>
+      </Provider>
+    );
+  };

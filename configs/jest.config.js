@@ -9,7 +9,12 @@ module.exports = {
     '\\.(css|scss|less)$': '<rootDir>/tests/__mocks__/styleMock.js',
     '@/(.*)': '<rootDir>/src/$1',
   },
-  coveragePathIgnorePatterns: ['index.ts'],
+  coveragePathIgnorePatterns: [
+    'index.ts',
+    'stories.tsx',
+    '<rootDir>/src/index.tsx',
+    '<rootDir>/src/wdyr.tx',
+  ],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
   transformIgnorePatterns: ['/node_modules/'],
   testRegex: '/__tests__/.*\\.(ts|tsx)$',

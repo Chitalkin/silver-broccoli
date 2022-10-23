@@ -109,3 +109,7 @@ public
 
 # TernJS port file
 .tern-port
+
+# stryker temp files
+.stryker-tmp
+reports
