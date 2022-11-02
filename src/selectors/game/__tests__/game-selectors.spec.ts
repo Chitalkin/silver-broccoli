@@ -1,20 +1,10 @@
 import { mockState } from '@/tests/mocks';
-import {
-  getGenerationNumber,
-  getIsGameRunning,
-  getPopulation,
-} from '..//game-selectors';
+import { getGenerationNumber, getIsGameRunning } from '..//game-selectors';
 
 describe('Game selectors', () => {
-  describe('getPopulation', () => {
+  describe('getGenerationNumber', () => {
     it('should return the correct user name', () => {
       expect(getGenerationNumber(mockState)).toEqual(10);
-    });
-  });
-
-  describe('getPopulation', () => {
-    it('should return the expected population', () => {
-      expect(getPopulation(mockState)).toEqual(mockState.game.population);
     });
   });
 

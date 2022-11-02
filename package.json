@@ -15,7 +15,8 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "loki:ci": "build-storybook && loki --requireReference --reactUri file:./storybook-static --chromeFlags=\"--headless --disable-gpu --hide-scrollbars --no-sandbox\"",
-    "madge": "madge --circular --extensions ts,tsx ./src"
+    "madge": "madge --circular --extensions ts,tsx ./src",
+    "stryker": "stryker run"
   },
   "repository": {
     "type": "git",
@@ -41,6 +42,8 @@
     "@storybook/manager-webpack5": "^6.5.10",
     "@storybook/react": "^6.5.10",
     "@storybook/testing-library": "^0.0.13",
+    "@stryker-mutator/core": "^6.2.3",
+    "@stryker-mutator/jest-runner": "^6.2.3",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^14.4.3",
