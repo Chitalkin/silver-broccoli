@@ -1,14 +1,6 @@
 import * as actions from '../actions';
 
 describe('game actions', () => {
-  it('should return expected value [setGameClear]', () => {
-    const expected = {
-      type: actions.SET_GAME_CLEAR,
-    };
-
-    expect(actions.setGameClear()).toEqual(expected);
-  });
-
   it('should return expected value [setGameStart]', () => {
     const expected = {
       type: actions.SET_GAME_START,

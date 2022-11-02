@@ -1,14 +1,12 @@
 import React from 'react';
 import { Row, RowsLabel } from '@/ui/rows';
-import { useSizeButtons } from './use-size-buttons';
+import { SizeButtons } from './size-buttons';
 
-export const SettingsSize = React.memo<{}>(() => {
-  const configButtons = useSizeButtons();
-
+export const SettingsSize = React.memo(() => {
   return (
-    <Row>
+    <Row columns={4}>
       <RowsLabel>Board Size:</RowsLabel>
-      {configButtons}
+      <SizeButtons />
     </Row>
   );
 });

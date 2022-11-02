@@ -33,7 +33,8 @@ export const getRandomTuple = (
  * 1 - "живая"
  */
 export const fillBoardRandomly = (
-  { columns, rows }: BoardSizeConfigItem,
+  columns: number,
+  rows: number,
   percentage: number,
 ): CellStatus[][] => {
   const board = makeEmptyBoard(columns, rows);

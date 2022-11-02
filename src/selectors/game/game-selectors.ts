@@ -11,3 +11,9 @@ export const getGenerationNumber = (state: RootState): number =>
  */
 export const getIsGameRunning = (state: RootState): boolean =>
   state.game.isGameRunning;
+
+/**
+ * Возвращает true, нужно отчистить доску
+ */
+export const getIsBoardClear = (state: RootState): boolean =>
+  state.game.isBoardClear;

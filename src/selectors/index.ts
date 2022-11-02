@@ -1,3 +1,3 @@
 export { getSizeConfig, getSpeedConfig, getPersentageConfig } from './config';
-export { getGenerationNumber, getIsGameRunning } from './game';
+export { getGenerationNumber, getIsGameRunning, getIsBoardClear } from './game';
 export { getUserName } from './user';
