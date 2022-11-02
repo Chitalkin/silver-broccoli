@@ -1,20 +1,20 @@
 import {
   countNeighbours,
   getRandomTuple,
-  makeEmptyBoard,
+  generateEmptyBoard,
 } from '../board-utils';
 
 describe('Board utils', () => {
-  describe('makeEmptyBoard', () => {
+  describe('generateEmptyBoard', () => {
     const columns = 8;
     const rows = 8;
 
     it('should return an array with the expected length of the columns', () => {
-      expect(makeEmptyBoard(columns, rows)).toHaveLength(columns);
+      expect(generateEmptyBoard(columns, rows)).toHaveLength(columns);
     });
 
     it('should contain an array with the expected length of the rows', () => {
-      expect(makeEmptyBoard(columns, rows)[0]).toHaveLength(rows);
+      expect(generateEmptyBoard(columns, rows)[0]).toHaveLength(rows);
     });
   });
 

@@ -1,14 +1,10 @@
 import React from 'react';
 import { Row, RowsLabel } from '@/ui/rows';
-import { useSpeedButtons } from './use-speed-buttons';
+import { SpeedButtons } from './speed-buttons';
 
-export const SettingsSpeed = React.memo(() => {
-  const configButtons = useSpeedButtons();
-
-  return (
-    <Row>
-      <RowsLabel>Game speed:</RowsLabel>
-      {configButtons}
-    </Row>
-  );
-});
+export const SettingsSpeed = React.memo(() => (
+  <Row columns={3}>
+    <RowsLabel>Game speed:</RowsLabel>
+    <SpeedButtons />
+  </Row>
+));

@@ -1,33 +1,35 @@
-import React from 'react';
+import React, { memo } from 'react';
 import {
   ESimSpeed,
   SimSpeedConfigType,
   useConfig,
   ESettingsConfigItem,
 } from '@/configs';
-import { useMemo } from 'react';
 import { Button } from '@/ui/button';
 import { setSimSpeed } from '@/reducers';
 
-export const useSpeedButtons = () => {
+export const SpeedButtons = memo(() => {
   const [currentSpeed, config, onChange] = useConfig<SimSpeedConfigType>(
     ESettingsConfigItem.SimSpeedConfig,
     setSimSpeed,
   );
 
-  return useMemo(
-    () =>
-      Object.keys(config).map((key) => {
+  return (
+    <>
+      {Object.keys(config).map((key) => {
         const speed = key as ESimSpeed;
-        const item = config[speed];
-        const isActive = currentSpeed === item;
+        const speedValue = config[speed];
 
         return (
-          <Button active={isActive} onClick={() => onChange(speed)} key={key}>
+          <Button
+            active={currentSpeed === speedValue}
+            onClick={() => onChange(speed)}
+            key={key}
+          >
             {speed}
           </Button>
         );
-      }),
-    [config, onChange, currentSpeed],
+      })}
+    </>
   );
-};
+});

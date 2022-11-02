@@ -30,12 +30,6 @@ describe('user reducer', () => {
     );
   });
 
-  it('should return the modified state [setGameClear]', () => {
-    expect(gameReducer(initialState, actions.setGameClear())).toEqual(
-      initialState,
-    );
-  });
-
   it('should return the modified state [setIncreaseGeneration]', () => {
     const modifiedState: GameStateType = {
       ...initialState,

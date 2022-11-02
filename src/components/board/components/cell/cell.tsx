@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import styled from 'styled-components';
 import { CELL } from '@/styles/colors';
 import { CellStatus } from '../../board-utils';
@@ -26,13 +26,16 @@ const StyledCell = styled.span<{ size: string; status: 1 | 0 }>`
   border-left: 1px solid ${CELL.border};
   border-top: 1px solid ${CELL.border};
   cursor: pointer;
+  :hover {
+    opacity: 0.3;
+  }
 `;
 
 export const Cell = React.memo<CellProps>(
   ({ onClick, status, population, rowIndex, cellIndex }) => {
-    const handleClick = () => {
+    const handleClick = useCallback(() => {
       onClick(population, rowIndex, cellIndex);
-    };
+    }, [cellIndex, onClick, population, rowIndex]);
 
     return (
       <StyledCell
