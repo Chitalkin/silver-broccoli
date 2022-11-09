@@ -7,6 +7,7 @@ import { getIsGameRunning } from '@/selectors';
 export const ControlPause = React.memo(() => {
   const dispatch = useDispatch();
   const isGameRunning = useSelector(getIsGameRunning);
+
   const handleClick = () => {
     if (isGameRunning) {
       dispatch(setGameStop());

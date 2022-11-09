@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { ButtonWithTimer } from '@/ui/button';
 import { useDispatch, useSelector } from '@/store';
 import { setGameStart } from '@/reducers';
@@ -8,11 +8,11 @@ export const ControlRun = React.memo(() => {
   const dispatch = useDispatch();
   const isGameRunning = useSelector(getIsGameRunning);
 
-  const handleClick = () => {
+  const handleClick = useCallback(() => {
     if (!isGameRunning) {
       dispatch(setGameStart());
     }
-  };
+  }, [dispatch, isGameRunning]);
 
   return (
     <ButtonWithTimer onClick={handleClick} resetAfter={1000}>

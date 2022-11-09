@@ -5,19 +5,16 @@ import {
   SET_INCREASE_GENERATION,
   GameActionTypes,
   RESET_GENERATION,
-  CLEAR_BOARD,
 } from './actions';
 
 export type GameStateType = {
   generation: number;
   isGameRunning: boolean;
-  isBoardClear: boolean;
 };
 
 export const initialState: GameStateType = {
   generation: 0,
   isGameRunning: false,
-  isBoardClear: false,
 };
 
 export const gameReducer: Reducer<GameStateType, GameActionTypes> = (
@@ -47,12 +44,6 @@ export const gameReducer: Reducer<GameStateType, GameActionTypes> = (
       return {
         ...state,
         generation: 0,
-      };
-
-    case CLEAR_BOARD:
-      return {
-        ...state,
-        isBoardClear: action.payload,
       };
 
     default:

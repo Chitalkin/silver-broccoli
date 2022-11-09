@@ -97,3 +97,9 @@ export const getNextGeneration = (prev: CellStatus[][]): CellStatus[][] => {
 
   return next;
 };
+
+/**
+ * Возвращает true, если все клетки находятся в статусе 0
+ */
+export const checkIsEveryoneDead = (population: CellStatus[][]): boolean =>
+  !population.flat(2).some((status) => status > 0);

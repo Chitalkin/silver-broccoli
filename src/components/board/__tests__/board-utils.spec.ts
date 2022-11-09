@@ -2,6 +2,7 @@ import {
   countNeighbours,
   getRandomTuple,
   generateEmptyBoard,
+  checkIsEveryoneDead,
 } from '../board-utils';
 
 describe('Board utils', () => {
@@ -80,6 +81,26 @@ describe('Board utils', () => {
     ])('with %o, neighbours = %s', (board, expected) => {
       // считаем соседей вокруг центральной точки
       expect(countNeighbours(board, 1, 1)).toEqual(expected);
+    });
+  });
+
+  describe('checkIsEveryoneDead', () => {
+    it('should return true if all cells are dead', () => {
+      expect(
+        checkIsEveryoneDead([
+          [0, 0],
+          [0, 0],
+        ]),
+      ).toBe(true);
+    });
+
+    it('should return false if some cell is alive', () => {
+      expect(
+        checkIsEveryoneDead([
+          [0, 1],
+          [0, 0],
+        ]),
+      ).toBe(false);
     });
   });
 });

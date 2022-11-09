@@ -6,12 +6,7 @@ import { CellStatus } from '../../board-utils';
 interface CellProps {
   rowIndex: number;
   cellIndex: number;
-  population: CellStatus[][];
-  onClick: (
-    population: CellStatus[][],
-    rowIndex: number,
-    cellIndex: number,
-  ) => void;
+  onClick: (rowIndex: number, cellIndex: number) => void;
   status: CellStatus;
 }
 
@@ -32,10 +27,10 @@ const StyledCell = styled.span<{ size: string; status: 1 | 0 }>`
 `;
 
 export const Cell = React.memo<CellProps>(
-  ({ onClick, status, population, rowIndex, cellIndex }) => {
+  ({ onClick, status, rowIndex, cellIndex }) => {
     const handleClick = useCallback(() => {
-      onClick(population, rowIndex, cellIndex);
-    }, [cellIndex, onClick, population, rowIndex]);
+      onClick(rowIndex, cellIndex);
+    }, [cellIndex, onClick, rowIndex]);
 
     return (
       <StyledCell

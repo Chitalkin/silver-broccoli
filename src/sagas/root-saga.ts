@@ -2,7 +2,7 @@ import { getUserName } from '@/selectors';
 import { all, select, takeEvery } from 'redux-saga/effects';
 import { SET_USER_NAME } from '@/reducers/user-reducer/actions';
 
-function* helloSaga() {
+export function* helloSaga() {
   const name: string = yield select(getUserName);
 
   if (name) {
@@ -10,7 +10,7 @@ function* helloSaga() {
   }
 }
 
-function* userSaga() {
+export function* userSaga() {
   yield takeEvery(SET_USER_NAME, helloSaga);
 }
 

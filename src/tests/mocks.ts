@@ -21,6 +21,6 @@ export const mockState: RootState = {
   },
   game: {
     generation: 10,
-    isGameRunning: true,
+    isGameRunning: false,
   },
 };

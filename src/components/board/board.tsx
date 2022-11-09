@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { useSelector } from 'react-redux';
 import { getSizeConfig } from '@/selectors';
 import { useCells } from './board-hooks';
+import { useResetApp } from '@/hooks';
 
 interface BoardWrapperProps {
   columns: number;
@@ -18,8 +19,17 @@ const BoardWrapper = styled.div<BoardWrapperProps>`
 `;
 
 export const Board = React.memo(() => {
+  const resetApp = useResetApp();
   const { columns, rows } = useSelector(getSizeConfig);
   const cells = useCells();
+
+  useEffect(
+    // WillUnmount
+    () => () => {
+      resetApp();
+    },
+    [resetApp, columns, rows],
+  );
 
   return (
     <BoardWrapper data-testid="board-component" columns={columns} rows={rows}>

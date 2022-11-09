@@ -7,8 +7,10 @@ import {
 } from '@/configs';
 import { Button, ButtonWithTimer } from '@/ui/button';
 import { setRandomFillPercentage } from '@/reducers';
+import { useResetApp } from '@/hooks';
 
 export const FillButtons = memo(() => {
+  const resetApp = useResetApp();
   const [current, config, onChange] = useConfig<RandomPercentageConfigType>(
     ESettingsConfigItem.RandomFillPersentageConfig,
     setRandomFillPercentage,
@@ -25,7 +27,7 @@ export const FillButtons = memo(() => {
           return (
             <ButtonWithTimer
               resetAfter={500}
-              onClick={handleChange}
+              onClick={resetApp}
               key={percentage}
             >
               Reset

@@ -1,7 +1,6 @@
 import React from 'react';
-import { clearBoard, setIncreaseGeneration } from '@/reducers';
+import { setIncreaseGeneration } from '@/reducers';
 import {
-  getIsBoardClear,
   getIsGameRunning,
   getPersentageConfig,
   getSizeConfig,
@@ -48,8 +47,6 @@ export const useNextGeneration = (
   const dispatch = useDispatch();
   const isGameRunning = useSelector(getIsGameRunning);
   const speed = useSelector(getSpeedConfig);
-
-  console.log('useNextGeneration');
 
   /**
    * Проверка на существование "живых" клеток
@@ -99,14 +96,14 @@ export const useCells = () => {
   useNextGeneration(population, setPopulation);
 
   const handleClick = useCallback(
-    (population: CellStatus[][], rowIndex: number, cellIndex: number) => {
+    (rowIndex: number, cellIndex: number) => {
       const updatedPopulation = structuredClone(population);
       updatedPopulation[rowIndex][cellIndex] = population[rowIndex][cellIndex]
         ? 0
         : 1;
       setPopulation(updatedPopulation);
     },
-    [setPopulation],
+    [population],
   );
 
   return population
@@ -115,7 +112,6 @@ export const useCells = () => {
         <Cell
           status={state}
           rowIndex={rowIndex}
-          population={population}
           cellIndex={cellIndex}
           onClick={handleClick}
           key={`${rowIndex}-${cellIndex}`}

@@ -1,6 +1,5 @@
 export const SET_GAME_START = 'SET_GAME_START';
 export const SET_GAME_STOP = 'SET_GAME_STOP';
-export const CLEAR_BOARD = 'CLEAR_BOARD';
 export const SET_INCREASE_GENERATION = 'SET_GENERATION';
 export const RESET_GENERATION = 'RESET_GENERATION';
 
@@ -24,15 +23,8 @@ export const resetGeneration = () =>
     type: RESET_GENERATION,
   } as const);
 
-export const clearBoard = (payload: boolean) =>
-  ({
-    type: CLEAR_BOARD,
-    payload,
-  } as const);
-
 export type GameActionTypes =
   | ReturnType<typeof setGameStart>
   | ReturnType<typeof setGameStop>
-  | ReturnType<typeof clearBoard>
   | ReturnType<typeof resetGeneration>
   | ReturnType<typeof setIncreaseGeneration>;

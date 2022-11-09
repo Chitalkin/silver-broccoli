@@ -5,7 +5,7 @@ import { renderWithProviders } from '@/tests/utils';
 import { mockState } from '@/tests/mocks';
 
 describe('Counter', () => {
-  it('should render corectly', () => {
+  it('should render correctly', () => {
     renderWithProviders(<Counter />);
 
     expect(screen.getByText(mockState.game.generation)).toBeInTheDocument();

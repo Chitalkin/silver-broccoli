@@ -1,5 +1,1 @@
-export {
-  getGenerationNumber,
-  getIsGameRunning,
-  getIsBoardClear,
-} from './game-selectors';
+export { getGenerationNumber, getIsGameRunning } from './game-selectors';

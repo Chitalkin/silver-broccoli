@@ -1,30 +1,12 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 import { ButtonWithTimer } from '@/ui/button';
-import { useDispatch } from '@/store';
-import {
-  clearBoard,
-  resetGeneration,
-  setGameStop,
-  setRandomFillPercentage,
-} from '@/reducers';
-import { useSelector } from 'react-redux';
-import { getIsBoardClear } from '@/selectors';
-import { ERandomPercentage } from '@/configs';
+import { useResetApp } from '@/hooks';
 
 export const ControlClear = React.memo(() => {
-  const dispatch = useDispatch();
-  const isBoardCleared = useSelector(getIsBoardClear);
-  const handleClick = useCallback(() => {
-    if (!isBoardCleared) {
-      dispatch(setGameStop());
-      dispatch(resetGeneration());
-      dispatch(setRandomFillPercentage(ERandomPercentage.None));
-      dispatch(clearBoard(true));
-    }
-  }, [dispatch, isBoardCleared]);
+  const resetApp = useResetApp();
 
   return (
-    <ButtonWithTimer onClick={handleClick} resetAfter={1000}>
+    <ButtonWithTimer onClick={resetApp} resetAfter={1000}>
       Clear
     </ButtonWithTimer>
   );
