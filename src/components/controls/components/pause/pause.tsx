@@ -1,8 +1,11 @@
 import React from 'react';
 import { ButtonWithTimer } from '@/ui/button';
-import { useDispatch, useSelector } from '@/store';
-import { setGameStop } from '@/reducers';
-import { getIsGameRunning } from '@/selectors';
+import {
+  getIsGameRunning,
+  setGameStop,
+  useDispatch,
+  useSelector,
+} from '@/store';
 
 export const ControlPause = React.memo(() => {
   const dispatch = useDispatch();

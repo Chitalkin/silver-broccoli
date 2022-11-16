@@ -1,8 +1,6 @@
 import { useCallback, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { getUserName } from '@/selectors';
-import { useDispatch, useSelector } from '@/store';
-import { setUserName } from '@/reducers';
+import { getUserName, setUserName, useDispatch, useSelector } from '@/store';
 
 type Logout = () => void;
 

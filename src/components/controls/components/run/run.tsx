@@ -1,8 +1,11 @@
 import React, { useCallback } from 'react';
 import { ButtonWithTimer } from '@/ui/button';
-import { useDispatch, useSelector } from '@/store';
-import { setGameStart } from '@/reducers';
-import { getIsGameRunning } from '@/selectors';
+import {
+  getIsGameRunning,
+  setGameStart,
+  useDispatch,
+  useSelector,
+} from '@/store';
 
 export const ControlRun = React.memo(() => {
   const dispatch = useDispatch();

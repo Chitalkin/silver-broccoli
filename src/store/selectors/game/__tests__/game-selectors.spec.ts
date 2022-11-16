@@ -1,5 +1,5 @@
 import { mockState } from '@/tests/mocks';
-import { getGenerationNumber, getIsGameRunning } from '..//game-selectors';
+import { getGenerationNumber, getIsGameRunning } from '../game-selectors';
 
 describe('Game selectors', () => {
   describe('getGenerationNumber', () => {

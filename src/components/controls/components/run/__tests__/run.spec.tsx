@@ -1,5 +1,5 @@
-jest.mock('@/reducers', () => ({
-  ...jest.requireActual('@/reducers'),
+jest.mock('@/store/reducers', () => ({
+  ...jest.requireActual('@/store/reducers'),
   setGameStart: jest.fn(),
 }));
 
@@ -7,7 +7,7 @@ import React from 'react';
 import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { renderWithProviders } from '@/tests/utils';
-import { setGameStart } from '@/reducers';
+import { setGameStart } from '@/store/reducers';
 import * as hooks from '@/store/hooks';
 import { RootState } from '@/store';
 import { ControlRun } from '../run';

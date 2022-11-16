@@ -6,7 +6,7 @@ import {
   useConfig,
 } from '@/configs';
 import { Button, ButtonWithTimer } from '@/ui/button';
-import { setRandomFillPercentage } from '@/reducers';
+import { setRandomFillPercentage } from '@/store/reducers';
 import { useResetApp } from '@/hooks';
 
 export const FillButtons = memo(() => {

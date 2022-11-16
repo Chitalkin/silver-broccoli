@@ -6,7 +6,7 @@ import {
   ESettingsConfigItem,
 } from '@/configs';
 import { Button } from '@/ui/button';
-import { setBoardSize } from '@/reducers';
+import { setBoardSize } from '@/store/reducers';
 
 export const SizeButtons = memo(() => {
   const [{ rows, columns }, config, onChange] = useConfig<BoardSizeConfigType>(

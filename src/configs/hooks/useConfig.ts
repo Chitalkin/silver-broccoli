@@ -1,5 +1,5 @@
 import { useCallback } from 'react';
-import { ConfigActionTypes } from '@/reducers/config-reducer';
+import { ConfigActionTypes } from '@/store/reducers/config-reducer';
 import { SettingsConfig } from '../constants';
 import { ESettingsConfigItem } from '../enums';
 import { useDispatch, useSelector } from '@/store';

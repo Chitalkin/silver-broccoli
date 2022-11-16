@@ -1,6 +1,6 @@
-import { getUserName } from '@/selectors';
 import { all, select, takeEvery } from 'redux-saga/effects';
-import { SET_USER_NAME } from '@/reducers/user-reducer/actions';
+import { getUserName } from '../selectors';
+import { SET_USER_NAME } from '../reducers/user-reducer/actions';
 
 export function* helloSaga() {
   const name: string = yield select(getUserName);

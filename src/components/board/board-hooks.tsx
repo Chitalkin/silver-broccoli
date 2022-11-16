@@ -1,13 +1,14 @@
 import React from 'react';
-import { setIncreaseGeneration } from '@/reducers';
+import { Dispatch, useCallback, useEffect, useMemo, useState } from 'react';
 import {
   getIsGameRunning,
   getPersentageConfig,
   getSizeConfig,
   getSpeedConfig,
-} from '@/selectors';
-import { useDispatch, useSelector } from '@/store';
-import { Dispatch, useCallback, useEffect, useMemo, useState } from 'react';
+  setIncreaseGeneration,
+  useDispatch,
+  useSelector,
+} from '@/store';
 import {
   CellStatus,
   fillBoardRandomly,

@@ -9,7 +9,7 @@ import {
 } from '@/configs';
 import * as hooks from '@/store/hooks';
 import { useConfig } from '../hooks/useConfig';
-import { setBoardSize } from '@/reducers';
+import { setBoardSize } from '@/store/reducers';
 
 describe('Config hooks', () => {
   afterAll(() => {

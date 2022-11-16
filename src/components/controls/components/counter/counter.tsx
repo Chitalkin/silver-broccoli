@@ -1,8 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { FONT } from '@/styles/colors';
-import { useSelector } from '@/store';
-import { getGenerationNumber } from '@/selectors';
+import { getGenerationNumber, useSelector } from '@/store';
 
 const StyledCounter = styled.p`
   color: ${FONT.default};

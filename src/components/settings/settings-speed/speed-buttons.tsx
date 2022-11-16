@@ -6,7 +6,7 @@ import {
   ESettingsConfigItem,
 } from '@/configs';
 import { Button } from '@/ui/button';
-import { setSimSpeed } from '@/reducers';
+import { setSimSpeed } from '@/store/reducers';
 
 export const SpeedButtons = memo(() => {
   const [currentSpeed, config, onChange] = useConfig<SimSpeedConfigType>(

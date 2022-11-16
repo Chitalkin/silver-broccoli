@@ -3,7 +3,7 @@ import {
   resetGeneration,
   setGameStop,
   setRandomFillPercentage,
-} from '@/reducers';
+} from '@/store/reducers';
 import { useDispatch } from '@/store';
 import { useCallback } from 'react';
 

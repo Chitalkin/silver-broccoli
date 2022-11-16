@@ -1,5 +1,5 @@
-jest.mock('@/reducers', () => ({
-  ...jest.requireActual('@/reducers'),
+jest.mock('@/store/reducers', () => ({
+  ...jest.requireActual('@/store/reducers'),
   setGameStop: jest.fn(),
   resetGeneration: jest.fn(),
   setRandomFillPercentage: jest.fn(),
@@ -15,7 +15,7 @@ import {
   resetGeneration,
   setGameStop,
   setRandomFillPercentage,
-} from '@/reducers';
+} from '@/store/reducers';
 
 describe('ControlClear', () => {
   afterAll(() => {

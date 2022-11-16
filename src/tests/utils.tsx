@@ -4,9 +4,8 @@ import { createStore, PreloadedState, Store } from 'redux';
 import { Provider } from 'react-redux';
 import { render } from '@testing-library/react';
 import type { RenderOptions } from '@testing-library/react';
-import { rootReducer } from '@/reducers';
 import { MemoryRouter } from 'react-router-dom';
-import { RootState } from '@/store';
+import { RootState, rootReducer } from '@/store';
 import { mockState } from './mocks';
 
 interface ExtendedRenderOptions extends Omit<RenderOptions, 'queries'> {
