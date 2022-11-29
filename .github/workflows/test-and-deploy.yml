@@ -26,8 +26,8 @@ jobs:
       - name: 🕵️ Visual Regression Testing
         run: npm run loki:ci
 
-      - name: 🕵️ Stryker
-        run: npm run stryker
+      # - name: 🕵️ Stryker
+      #   run: npm run stryker
 
   deploy:
     needs: test
