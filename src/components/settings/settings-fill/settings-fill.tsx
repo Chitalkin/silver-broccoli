@@ -4,7 +4,7 @@ import { FillButtons } from './fill-buttons';
 
 export const SettingsFill = React.memo(() => (
   <Row columns={4}>
-    <RowsLabel>Random content:</RowsLabel>
+    <RowsLabel>Random fill:</RowsLabel>
     <FillButtons />
   </Row>
 ));

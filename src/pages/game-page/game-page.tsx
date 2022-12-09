@@ -4,7 +4,6 @@ import { Controls } from '@/components/controls';
 import {
   SettingsContainer,
   SettingsFill,
-  SettingsSize,
   SettingsSpeed,
 } from '@/components/settings';
 import styled from 'styled-components';
@@ -27,9 +26,8 @@ export const GamePage: React.FC = () => {
         <Controls />
         <Board />
         <SettingsContainer>
-          <SettingsSize />
-          <SettingsFill />
           <SettingsSpeed />
+          <SettingsFill />
         </SettingsContainer>
       </Wrapper>
     </>

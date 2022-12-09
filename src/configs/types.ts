@@ -11,7 +11,7 @@ export type BoardSizeConfigItem = {
 };
 
 export type BoardSizeConfigType = {
-  [k in EBoardSize]: BoardSizeConfigItem;
+  [k in EBoardSize]?: BoardSizeConfigItem;
 };
 
 export type RandomPercentageConfigType = {
@@ -23,7 +23,7 @@ export type SimSpeedConfigType = {
 };
 
 export type SettingsConfigType = {
-  [ESettingsConfigItem.BoardSizeConfig]: BoardSizeConfigType;
+  [ESettingsConfigItem.BoardSizeConfig]?: BoardSizeConfigType;
   [ESettingsConfigItem.RandomFillPersentageConfig]: RandomPercentageConfigType;
   [ESettingsConfigItem.SimSpeedConfig]: SimSpeedConfigType;
 };

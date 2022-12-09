@@ -12,8 +12,8 @@ const StyledHeader = styled.header`
 const HeaderInner = styled.div`
   max-width: 960px;
   margin: 0 auto;
-  margin-bottom: 60px;
-  padding: 0 16px;
+  margin-bottom: 40px;
+  padding: 12px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -21,16 +21,17 @@ const HeaderInner = styled.div`
 
 const HeaderLogo = styled.span`
   text-transform: uppercase;
-  font-size: 24px;
+  font-size: 16px;
   font-weight: bold;
 `;
 
 const HeaderPanel = styled.p`
-  font-size: 18;
+  font-size: 18px;
   text-align: center;
   display: inline-flex;
   align-items: center;
   gap: 24px;
+  margin: 0;
 `;
 
 interface HeaderProps {
