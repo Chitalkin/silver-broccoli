@@ -1,6 +1,5 @@
 import { AnyAction, applyMiddleware, createStore } from 'redux';
 import thunk, { ThunkAction } from 'redux-thunk';
-import logger from 'redux-logger';
 import createSagaMiddleware from 'redux-saga';
 import { save, load } from 'redux-localstorage-simple';
 import { composeWithDevTools } from '@redux-devtools/extension';
@@ -18,7 +17,6 @@ export const store = createStore(
       save({
         ignoreStates: ['game'],
       }),
-      logger,
       sagaMiddleware,
     ),
   ),
