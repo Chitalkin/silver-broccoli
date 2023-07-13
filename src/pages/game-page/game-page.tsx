@@ -8,7 +8,6 @@ import {
 } from '@/components/settings';
 import styled from 'styled-components';
 import { Header } from '@/components/header';
-import { useAuth } from '@/hooks';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -16,20 +15,16 @@ export const Wrapper = styled.div`
   flex-direction: column;
 `;
 
-export const GamePage: React.FC = () => {
-  const [name, logout] = useAuth();
-
-  return (
-    <>
-      <Header name={name} logout={logout} />
-      <Wrapper>
-        <Controls />
-        <Board />
-        <SettingsContainer>
-          <SettingsSpeed />
-          <SettingsFill />
-        </SettingsContainer>
-      </Wrapper>
-    </>
-  );
-};
+export const GamePage: React.FC = () => (
+  <>
+    <Header />
+    <Wrapper>
+      <Controls />
+      <Board />
+      <SettingsContainer>
+        <SettingsSpeed />
+        <SettingsFill />
+      </SettingsContainer>
+    </Wrapper>
+  </>
+);

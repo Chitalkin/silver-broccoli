@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { COLORS } from '@/styles';
-import { Button } from '@/ui/button';
 
 const StyledHeader = styled.header`
   width: 100%;
@@ -34,18 +33,12 @@ const HeaderPanel = styled.p`
   margin: 0;
 `;
 
-interface HeaderProps {
-  name: string;
-  logout: () => void;
-}
-
-export const Header: React.FC<HeaderProps> = ({ name, logout }) => (
+export const Header: React.FC = () => (
   <StyledHeader data-testid="header-component">
     <HeaderInner>
       <HeaderLogo>silver-broccoli</HeaderLogo>
       <HeaderPanel>
-        <span>Hi, {name}</span>
-        <Button onClick={logout}>Logout</Button>
+        <span>Hello!</span>
       </HeaderPanel>
     </HeaderInner>
   </StyledHeader>
