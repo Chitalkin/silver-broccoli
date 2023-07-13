@@ -27,8 +27,8 @@ export type ConfigStateType = {
 export const initialState: ConfigStateType = {
   [ESettingsConfigItem.BoardSizeConfig]: BOARD_SIZE_CONFIGS[EBoardSize.Small],
   [ESettingsConfigItem.RandomFillPersentageConfig]:
-    RANDOM_FILL_PERCENTAGE[ERandomPercentage.None],
-  [ESettingsConfigItem.SimSpeedConfig]: SIM_SPEED_MS[ESimSpeed.Slow],
+    RANDOM_FILL_PERCENTAGE[ERandomPercentage.High],
+  [ESettingsConfigItem.SimSpeedConfig]: SIM_SPEED_MS[ESimSpeed.Fast],
 };
 
 export const configReducer: Reducer<ConfigStateType, ConfigActionTypes> = (

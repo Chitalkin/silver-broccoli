@@ -1,17 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
 import { SETTINGS } from '@/styles/colors';
-import { ControlClear, ControlPause, ControlRun, Counter } from './components';
+import { ControlClear, ControlPause, ControlRun } from './components';
 
 const CotrolsWrapper = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-  gap: 1rem;
-  max-width: 550px;
+  max-width: 330px;
   width: 100%;
   background-color: ${SETTINGS.background};
-  padding: 6px 20px;
+  padding: 4px;
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
 `;
@@ -21,6 +20,6 @@ export const Controls = React.memo(() => (
     <ControlRun />
     <ControlPause />
     <ControlClear />
-    <Counter />
+    {/* <Counter /> */}
   </CotrolsWrapper>
 ));

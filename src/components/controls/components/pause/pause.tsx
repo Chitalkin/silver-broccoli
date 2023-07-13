@@ -18,7 +18,7 @@ export const ControlPause = React.memo(() => {
   };
 
   return (
-    <ButtonWithTimer onClick={handleClick} resetAfter={1000}>
+    <ButtonWithTimer onClick={handleClick} title="Пауза" resetAfter={1000}>
       Pause
     </ButtonWithTimer>
   );

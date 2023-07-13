@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { COLORS } from '@/styles';
+import { Counter } from '../counter';
 
 const StyledHeader = styled.header`
   width: 100%;
@@ -12,7 +13,7 @@ const HeaderInner = styled.div`
   max-width: 960px;
   margin: 0 auto;
   margin-bottom: 40px;
-  padding: 12px 0;
+  padding: 12px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -37,6 +38,7 @@ export const Header: React.FC = () => (
   <StyledHeader data-testid="header-component">
     <HeaderInner>
       <HeaderLogo>silver-broccoli</HeaderLogo>
+      <Counter />
       <HeaderPanel>
         <span>Hello!</span>
       </HeaderPanel>

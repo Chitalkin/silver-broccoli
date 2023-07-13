@@ -15,8 +15,7 @@ export const Counter = React.memo(() => {
 
   return (
     <StyledCounter className="counter" aria-label="current-element-count">
-      <span>Generation: </span>
-      <span>{count}</span>
+      {count}
     </StyledCounter>
   );
 });
